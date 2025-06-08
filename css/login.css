@@ -97,6 +97,7 @@
     background-color: rgba(64, 64, 64, 0.2);
     border-radius: 10px;
     font-size: 16px;
+    color: var(--text-color);
 }
 
 .login-btn {
