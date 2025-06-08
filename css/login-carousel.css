@@ -98,7 +98,7 @@
     color: var(--text-color);
     padding: 15px 20px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 30px;
     border: none;
     bottom: 8%;
@@ -106,4 +106,6 @@
     transform: translateX(-50%); /* Fine-tune centering */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     text-decoration: none;
+    width:280px;
+    text-align: center;
 }
