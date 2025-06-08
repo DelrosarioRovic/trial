@@ -77,7 +77,6 @@
 
 /* popular videos section*/
 .popular-title {
-    font-size: 18px;
     margin-bottom: 10px;
     color: var(--text-color);
 }
@@ -95,7 +94,8 @@
 }
 
 .popular-e-item div {
-    height: 160px;
+    height: 150px;
+    min-height: 140px;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -184,6 +184,7 @@
       align-items: center;
       height: 50px; /* or your desired height */
       padding: 20px;
+      margin-bottom: 50px;
     }
 
     .home-title {
