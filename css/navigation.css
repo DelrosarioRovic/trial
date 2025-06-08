@@ -23,7 +23,6 @@
 
 .nav-links {
   display: flex;
-  gap: 2rem;
   padding: 0 10px;
 }
 
@@ -45,6 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px 20px;
 }
 
 .icon-profile div {
@@ -64,8 +64,8 @@
 
 .active-dot {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
+  bottom: 6px;
+  right: 14px;
   width: 14px;
   height: 14px;
   background-color: #4caf50; /* green dot */
@@ -82,7 +82,7 @@
     top: auto; /* Override sticky positioning */
     width: 100%;
     justify-content: space-around;
-    padding: 1rem 0.5rem 0.5rem;
+    padding: 7px;
   }
 
   .nav-logo {
@@ -92,14 +92,16 @@
   .nav-links {
     width: 100%;
     justify-content: space-around;
+    padding: 0;
   }
 
   .mobile-icon {
     display: block; /* Show icons */
-    width: 22px;
+    width: 20px;
   }
   .icon-container {
     display: flex;
     flex-direction: column;
+    padding: 5px 20px
   }
 }

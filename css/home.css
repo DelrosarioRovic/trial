@@ -1,6 +1,7 @@
 :root {
-   --secondary-color: rgb(110, 32, 32);
+   --secondary-color: #7A100C;
    --text-color: #ffffff;
+   --secondary-text-color: #ababab;
 }
 
 .container {
@@ -13,7 +14,7 @@
 
 .home-title {
     color: var(--text-color);
-    font-size: 32px;
+    font-size: 18px;
 }
 
 .search-icon {
@@ -26,6 +27,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    
 }
 
 .carousel-e-container {
@@ -49,14 +51,14 @@
 }
 
 .carousel-e-text-title {
-    font-size: 2em;
+    font-size: 18px;
     color: var(--text-color);
     font-weight: 600;
 }
 
 .carousel-e-text {
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .carousel-image {
@@ -71,35 +73,52 @@
     right: 0;
 }
 
+
+
 /* popular videos section*/
 .popular-title {
-    font-size: 26px;
+    font-size: 18px;
+    margin-bottom: 10px;
     color: var(--text-color);
 }
 
 .popular-container {
     display: flex;
     flex-direction: row;
+    gap: 2px;
+    justify-content: space-around;
 }
 
 .popular-e-item {
-    width: 33%;
+    width: 23%;
     color: var(--text-color);
 }
 
-.popular-e-item-t-text {
-    font-size: 20px;
-    margin-top: 0;
-    font-weight: 600;
+.popular-e-item div {
+    height: 160px;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .popular-img {
     width: 100%;
 }
 
+.popular-e-item-t-text {
+    font-size: 16px;
+    margin-top: 0;
+    font-weight: 600;
+    color: var(--text-color) !important;
+}
+
+.popular-e-item p {
+    color: var(--secondary-text-color);
+}
+
 /* live section*/
 .live-title {
-    font-size: 26px;
+    font-size: 18px;
+    margin-bottom: 10px;
     color: var(--text-color);
 }
 
@@ -138,20 +157,22 @@
 .live-e-button {
     background-color: var(--secondary-color);
     color: var(--text-color);
-    border-radius: 15px;
+    border-radius: 8px;
     position: absolute;
     left: 50%; 
     bottom: 0;
     transform: translateX(-50%); /* Fine-tune centering */
-    padding: 15px 15px;
+    padding: 12px 20px;
     white-space: nowrap;  /* Prevents text wrapping */
     display: inline-flex; /* Ensures inline behavior */
     align-items: center;  /* Vertically centers text */
     border: none;
+    font-weight: 600;
 }
 
 .live-e-button--small {
     bottom: 0 !important;
+    padding: 10px 20px;
 }
 
 
