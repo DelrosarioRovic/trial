@@ -8,7 +8,7 @@
 .navbar {
   display: flex;
   color: white;
-  background-color: rgb(21, 21, 21);
+  background-color: #0a0a0a;
 }
 
 /* Desktop Navigation (Default) */
@@ -82,7 +82,8 @@
     top: auto; /* Override sticky positioning */
     width: 100%;
     justify-content: space-around;
-    padding: 7px;
+    padding: 3px;
+    border-top: 2px solid #1e1e1e;
   }
 
   .nav-logo {
