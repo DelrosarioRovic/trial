@@ -1,0 +1,124 @@
+:root {
+   --secondary-color: rgb(110, 32, 32);
+   --text-color: #ffffff;
+}
+
+.container {
+    background-color: #0a0a0a;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 30px;
+    min-width: 500px;
+    width: 300px;
+    margin: auto;
+}
+
+.legend-title {
+    color: var(--text-color);
+}
+
+.thirdparty-container {
+    display: flex;
+    flex-direction: column;
+     gap: 15px;
+}
+
+.twitter, .facebook, .google {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 25px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    width: 320px;
+}
+
+.twitter img, .facebook img, .google img {
+    width: 24px;
+}
+
+.google {
+    background-color: white;
+    color: #1e1e1e;
+}
+
+.facebook { 
+    background-color: blue;
+    color: var(--text-color);
+}
+
+.twitter{
+    background-color: black;
+    color: var(--text-color);
+}
+
+.cut-space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    gap: 9px;
+}
+
+.or-text {
+    color: rgba(203, 203, 203, 0.811);
+}
+
+.horizontal-line {
+    max-width: 430px;
+    width: 28%;
+    height: 1px;
+    background-color: rgba(182, 182, 182, 0.2)
+}
+
+.form-container-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+}
+
+.input-class {
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    outline: 1px solid rgba(182, 182, 182, 0.2);
+    background-color: rgba(64, 64, 64, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-btn {
+    background-color: #E50914;
+    color: var(--text-color);
+    width: 100%;
+    padding: 16px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.warning-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+.warning-text span {
+    font-weight: bold;
+    cursor: pointer;
+}

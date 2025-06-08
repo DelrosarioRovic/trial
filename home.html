@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+   <!-- Add Poppins from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="header-container">
+      <h2 class="home-title">LEGENDS</h2>
+      <img src="./assets/icons/search.png" class="search-icon" alt="">
+   </div>
+    <nav class="navbar" id="navbar">
+      <a href="#" class="nav-logo">Logo</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#" class="icon-container">
+          <img class="mobile-icon" src="./assets/icons/home.png" alt="">
+          <span class="desktop-text">Home</span>
+        </a>
+        <a href="#" class="icon-container">
+          <img class="mobile-icon" src="./assets/icons/play-alt.png" alt="">
+          <span class="desktop-text">Video</span>
+        </a>
+        <a href="#" class="icon-container">
+          <img class="mobile-icon" src="./assets/icons/gym.png" alt="">
+          <span class="desktop-text">Trainer</span>
+
+        </a>
+        <a class="icon-profile" href="#">
+          <div>
+            <img src="./assets/images/16.png" alt="">
+          </div>
+          <span class="active-dot"></span>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+     <!-- swipable carousel -->
+     <div class="carousel-container">  
+        <div class="carousel-e-container">
+          <img class="carousel-image" src="./assets/images/19.png" alt="">
+          <div class="carousel-floating-c-text">
+            <p class="carousel-e-text-title">Boxing</p>
+            <p class="carousel-e-text">Fundamentals</p>
+          </div>
+        </div>
+        <div class="carousel-e-container">
+          <img class="carousel-image" src="./assets/images/20.png" alt="">
+          <div class="carousel-floating-c-text">
+            <p class="carousel-e-text-title">MMA</p>
+            <p class="carousel-e-text">Techniques</p>
+          </div>
+        </div>
+        <img class="next" src="./assets/icons/next.png" alt="">
+     </div>
+     <!-- popular videos -->
+      <div>
+        <h2 class="popular-title">POPULAR VIDEOS</h2>
+        <div class="popular-container">
+          <div class="popular-e-item">
+            <img class="popular-img" src="./assets/images/11.png" alt="">
+            <p class="popular-e-item-t-text">MuayThai</p>
+            <p>Beginer</p>
+            <p>Mark Duncan</p>
+          </div>
+          <div class="popular-e-item">
+            <img class="popular-img" src="./assets/images/12.png" alt="">
+            <p class="popular-e-item-t-text">Karate</p>
+            <p>All Level</p>
+            <p>David Chan</p>
+          </div>
+          <div class="popular-e-item">
+            <img class="popular-img" src="./assets/images/11.png" alt="">
+            <p class="popular-e-item-t-text">Kick Boxing</p>
+            <p>Beginer</p>
+            <p>Sarah Collins</p>
+          </div>
+        </div>
+      </div>
+      <!-- live -->
+       <div>
+        <h2 class="live-title">LIVE</h2>
+        <div class="live-container">
+          <div class="live-e-item live-e-item--small">
+            <div class="live-e-status">
+              <p class="">LIVE</p>
+            </div>
+            <button class="live-e-button live-e-button--small">
+              JOIN LIVE NOW
+            </button>
+            <img class="live-image" src="./assets/images/15.png" alt="">
+          </div>
+          <div class="live-e-item">
+            <button class="live-e-button">
+              START YOUR FREE TRIAL
+            </button>
+            <img class="live-image" src="./assets/images/17.png" alt="">
+          </div>
+        </div>
+       </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

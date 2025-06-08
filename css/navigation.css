@@ -1,0 +1,105 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  color: white;
+  background-color: rgb(21, 21, 21);
+}
+
+/* Desktop Navigation (Default) */
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  padding: 0 10px;
+}
+
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-icon {
+  display: none; /* Hidden on desktop */
+}
+
+.icon-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-profile div {
+  width: 55px;
+  height: 55px; /* make height equal to width */
+  overflow: hidden;
+  border-radius: 100%; /* perfect circle */
+  border: 2px solid green;
+}
+
+.icon-profile div img {
+  width: 100%;
+  height: 100%;
+  object-position: top;
+  object-fit: cover;
+}
+
+.active-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: #4caf50; /* green dot */
+  border: 2px solid white; /* border to separate from image */
+  border-radius: 50%;
+}
+
+
+/* Mobile Navigation (Under 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    top: auto; /* Override sticky positioning */
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem 0.5rem 0.5rem;
+  }
+
+  .nav-logo {
+    display: none; /* Hide logo on mobile */
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .mobile-icon {
+    display: block; /* Show icons */
+    width: 22px;
+  }
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
