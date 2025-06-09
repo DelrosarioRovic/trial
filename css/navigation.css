@@ -44,12 +44,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 20px;
+  padding: 5px 10px;
 }
 
 .icon-profile div {
-  width: 55px;
-  height: 55px; /* make height equal to width */
+  width: 45px;
+  height: 45px; /* make height equal to width */
   overflow: hidden;
   border-radius: 100%; /* perfect circle */
   border: 2px solid green;
@@ -82,7 +82,7 @@
     top: auto; /* Override sticky positioning */
     width: 100%;
     justify-content: space-around;
-    padding: 3px;
+    padding: 6px 0px 3px 0px;
     border-top: 2px solid #1e1e1e;
   }
 
@@ -92,13 +92,15 @@
 
   .nav-links {
     width: 100%;
-    justify-content: space-around;
-    padding: 0;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: flex-end;
+    font-size: 10px;
   }
 
   .mobile-icon {
     display: block; /* Show icons */
-    width: 20px;
+    width: 16px;
   }
   .icon-container {
     display: flex;
