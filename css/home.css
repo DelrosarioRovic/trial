@@ -2,6 +2,7 @@
    --secondary-color: #7A100C;
    --text-color: #ffffff;
    --secondary-text-color: #ababab;
+   --yellow-color: #FFEE00;
 }
 
 .container {
@@ -66,11 +67,11 @@
 }
 
 .next {
-    width: 20px;
-    height: 25px;
+    width: 13px;
+    height: 13px;
     position: absolute;
     bottom: 10px;
-    right: 0;
+    right: 10px;
 }
 
 /* popular videos section*/
