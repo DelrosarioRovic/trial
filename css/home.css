@@ -5,7 +5,7 @@
 }
 
 .container {
-    padding: 0 20px;
+    padding: 0 10px;
     padding-bottom: 100px;
     display: flex;
     flex-direction: column;
@@ -73,8 +73,6 @@
     right: 0;
 }
 
-
-
 /* popular videos section*/
 .popular-title {
     margin-bottom: 10px;
@@ -105,7 +103,7 @@
 }
 
 .popular-e-item-t-text {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 0;
     font-weight: 600;
     color: var(--text-color) !important;
@@ -113,6 +111,7 @@
 
 .popular-e-item p {
     color: var(--secondary-text-color);
+    font-size: 12px;
 }
 
 /* live section*/
@@ -184,7 +183,7 @@
       align-items: center;
       height: 50px; /* or your desired height */
       padding: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 10px;
     }
 
     .home-title {
