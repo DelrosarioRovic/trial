@@ -83,7 +83,6 @@
   width: 8px;
 }
 
-
 /* Mobile Navigation (Under 768px) */
 @media (max-width: 768px) {
   .navbar {
