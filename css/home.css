@@ -13,16 +13,6 @@
     gap: 3em;
 }
 
-.home-title {
-    color: var(--text-color);
-    font-size: 18px;
-}
-
-.search-icon {
-  display: none; /* Hidden on desktop */
-}
-
-
 /* carousel section*/
 .carousel-container {
     display: flex;
@@ -221,28 +211,6 @@
 }
 
 
-/* MEDIA QUERY */
-@media (max-width: 768px) {
-    .header-container {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 50px; /* or your desired height */
-      padding: 20px;
-      margin-bottom: 10px;
-    }
 
-    .home-title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .search-icon {
-      margin-left: auto; /* push to the right */
-      display: block; /* Show icons */
-      width: 22px;
-    }
-}
 
 

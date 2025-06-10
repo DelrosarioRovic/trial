@@ -1,0 +1,6 @@
+
+
+// const boxingData = [
+//     image: "",
+
+// ]

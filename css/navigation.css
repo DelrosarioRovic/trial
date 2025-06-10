@@ -15,6 +15,16 @@
   background-color: #0a0a0a;
 }
 
+.home-title {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.search-icon {
+  display: none; /* Hidden on desktop */
+}
+
+
 /* Desktop Navigation (Default) */
 .navbar {
   justify-content: space-between;
@@ -85,6 +95,22 @@
 
 /* Mobile Navigation (Under 768px) */
 @media (max-width: 768px) {
+  /* MEDIA QUERY */
+  .header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px; /* or your desired height */
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .home-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .navbar {
     position: fixed;
     bottom: 0;
@@ -106,6 +132,12 @@
     align-items: flex-end;
     font-size: 10px;
   }
+
+    .search-icon {
+      margin-left: auto; /* push to the right */
+      display: block; /* Show icons */
+      width: 22px;
+    }
 
   .mobile-icon {
     display: block; /* Show icons */
