@@ -13,7 +13,7 @@
 .carousel {
     position: relative;
     width: 100%;
-    height: var(--vh, 100vh);
+    height: 100svh;
     overflow: hidden;
     perspective: 1000px;
 }
