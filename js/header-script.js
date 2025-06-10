@@ -28,7 +28,7 @@ fetch("../components/navigation.html")
                 <img class="mobile-icon" src="./assets/icons/play-alt (1).png" alt="">
                 <span class="desktop-text">Video</span>
               </a>
-              <a class="icon-profile" href="#">
+              <a class="icon-profile" href="./profile.html">
                 <div>
                   <img class="profile-img" src="./assets/images/16.png" alt="">
                 </div>
