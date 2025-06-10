@@ -83,22 +83,21 @@
 }
 
 .clip1 {
-    width: 70%;
+    width: 61%;
     border-radius: 10px 0 0 10px;
     background-color: #1e1e1e;
-    clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
     z-index: 1;
 }
 
 .clip2 {
-  width: 30%;
+  width: 61%;
   border-radius: 0 10px 10px 0;
   background-color: #1e1e1e;
-  clip-path: polygon(45% 0, 100% 0, 100% 100%, 3% 100%);
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
   z-index: 2;
   position: absolute;
   right: 0;
-  width: 50%;
 }
 
 .clip1-img,
