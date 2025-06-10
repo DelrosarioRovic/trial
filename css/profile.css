@@ -1,7 +1,8 @@
 :root {
   --secondary-color: #7A100C;
   --yellow-color: #FFEE00;
-  --slate-color: #121212
+  --slate-color: #121212;
+  --text-color: #ffffff;
 }
 
 .container {
@@ -11,6 +12,7 @@
     flex-direction: column;
     gap: 3em;
     align-items: center;
+    color: var(--text-color);
 }
 
 /* upper section */
