@@ -1,9 +1,14 @@
+:root {
+  --text-color: #ffffff;
+}
+
 .container {
     padding: 0 10px;
     padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     gap: 3em;
+    color: var(--text-color);
 }
 
 
