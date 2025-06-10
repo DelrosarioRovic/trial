@@ -1,10 +1,20 @@
-function setAppHeight() {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
+const routes = {
+  "/": "../pages/index.html",
+  "/login": "../pages/login.html",
+  "/home": "../pages/home.html",
+  "/video": "../pages/video.html",
+  "/profile": "../pages/profile.html"
+};
 
-// Initial call
-setAppHeight();
+const loadPage = async (path) => {
+  const html = await fetch(routes[path] || routes["/"]).then(res => res.text());
+  document.getElementById("app").innerHTML = html;
+};
 
-// Re-apply on resize or orientation change
-window.addEventListener('resize', setAppHeight);
+const router = () => {
+  const path = location.hash.slice(1) || "/";
+  loadPage(path);
+};
+
+window.addEventListener("hashchange", router);
+window.addEventListener("DOMContentLoaded", router);
