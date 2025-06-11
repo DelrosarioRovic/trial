@@ -87,7 +87,7 @@ customElements.define(
         <!-- MMA section -->
           <div class="section-container">
             <div class="section-header-container">
-              <p class="section-header">MMA</p>
+              <p class="section-header">Mma</p>
               <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
             </div>
             <div class="video-container">
@@ -120,7 +120,7 @@ customElements.define(
         <!-- karate section -->
           <div class="section-container">
             <div class="section-header-container">
-              <p class="section-header">KARATE</p>
+              <p class="section-header">Karate</p>
               <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
             </div>
             <div class="video-container">
