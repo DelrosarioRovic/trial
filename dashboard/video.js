@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List</title>
-  <!-- Add Poppins from Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/video.css">
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-    <!-- header -->
-    <div id="header"></div>
-    <div class="container">
+customElements.define(
+  "video-page",
+  class extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({
+        mode: "open",
+      }).innerHTML = `
+        <slot name="video"></slot>`;
+    }
+    connectedCallback() {
+      this.innerHTML = `<!-- video -->
+      <section slot="video">
+        <div class="container">
         <!-- boxing section -->
           <div class="section-container">
             <div class="section-header-container">
@@ -40,6 +36,12 @@
                   <img class="thumbnail-img" src="./assets/images/boxing3.png" alt="">
                 </div>
                 <p>Combination</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
               </div>
             </div>
           </div>
@@ -68,12 +70,24 @@
                 </div>
                 <p>Clinch</p>
               </div>
+               <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/muaythai3.png" alt="">
+                </div>
+                <p>Clinch</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/muaythai2.png" alt="">
+                </div>
+                <p>Front Kick</p>
+              </div>
             </div>
           </div>
         <!-- MMA section -->
           <div class="section-container">
             <div class="section-header-container">
-              <p class="section-header">MMA</p>
+              <p class="section-header">Mma</p>
               <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
             </div>
             <div class="video-container">
@@ -95,36 +109,50 @@
                 </div>
                 <p>Rear Naked Choke</p>
               </div>
-            </div>
-          </div>
-        <!-- karate section -->
-          <div class="section-container">
-            <div class="section-header-container">
-              <p class="section-header">MMA</p>
-              <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
-            </div>
-            <!-- <div class="video-container">
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/mma1.png" alt="">
                 </div>
                 <p>Ground & Pound</p>
               </div>
-              <div class="video-item">
-                <div class="thumbnail-frame">
-                  <img class="thumbnail-img" src="./assets/images/mma2.png" alt="">
-                </div>
-                <p>Armbar</p>
-              </div>
-              <div class="video-item">
-                <div class="thumbnail-frame">
-                  <img class="thumbnail-img" src="./assets/images/mma3.png" alt="">
-                </div>
-                <p>Rear Naked Choke</p>
-              </div>
-            </div> -->
+            </div>
           </div>
-    </div>
-  <script src="./js/header-script.js"></script>
-</body>
-</html>
+        <!-- karate section -->
+          <div class="section-container">
+            <div class="section-header-container">
+              <p class="section-header">Karate</p>
+              <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
+            </div>
+            <div class="video-container">
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing2.png" alt="">
+                </div>
+                <p>Counter Punch</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing3.png" alt="">
+                </div>
+                <p>Combination</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      `;
+    }
+  }
+);
