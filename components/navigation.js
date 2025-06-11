@@ -33,7 +33,7 @@ customElements.define(
                 <span class="desktop-text">Trainer</span>
                 </a>
                 <a class="icon-profile nav-link" data-page="profile">
-                <div>
+                <div class="icon-profile-active">
                     <img class="profile-img" src="./assets/images/16.png" alt="profile">
                 </div>
                 <span class="active-dot">

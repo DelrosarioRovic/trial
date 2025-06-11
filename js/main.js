@@ -50,6 +50,19 @@ function updateActiveLink(page) {
 
             icon.src = isActive ? activeSrc : defaultSrc;
         }
+
+        // Special handling for profile
+        if (link.classList.contains('icon-profile')) {
+            const profileIcon = link.querySelector('.icon-profile-active');
+            const dot = link.querySelector('.active-dot');
+
+            if (profileIcon) {
+                profileIcon.classList.toggle('active-profile', isActive);
+            }
+            if (dot) {
+                dot.classList.toggle('active-dot-green', isActive);
+            }
+        }
     });
 }
 
