@@ -37,6 +37,12 @@ customElements.define(
                 </div>
                 <p>Combination</p>
               </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
+              </div>
             </div>
           </div>
         <!-- muay Thai section -->
@@ -63,6 +69,18 @@ customElements.define(
                   <img class="thumbnail-img" src="./assets/images/muaythai3.png" alt="">
                 </div>
                 <p>Clinch</p>
+              </div>
+               <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/muaythai3.png" alt="">
+                </div>
+                <p>Clinch</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/muaythai2.png" alt="">
+                </div>
+                <p>Front Kick</p>
               </div>
             </div>
           </div>
@@ -91,13 +109,45 @@ customElements.define(
                 </div>
                 <p>Rear Naked Choke</p>
               </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/mma1.png" alt="">
+                </div>
+                <p>Ground & Pound</p>
+              </div>
             </div>
           </div>
         <!-- karate section -->
           <div class="section-container">
             <div class="section-header-container">
-              <p class="section-header">MMA</p>
+              <p class="section-header">KARATE</p>
               <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="right arrow">
+            </div>
+            <div class="video-container">
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing2.png" alt="">
+                </div>
+                <p>Counter Punch</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing3.png" alt="">
+                </div>
+                <p>Combination</p>
+              </div>
+              <div class="video-item">
+                <div class="thumbnail-frame">
+                  <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                </div>
+                <p>Jab</p>
+              </div>
             </div>
           </div>
         </div>

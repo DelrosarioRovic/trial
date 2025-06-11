@@ -43,12 +43,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     gap: 10px;
+    overflow-x: auto;
+}
+
+/* Hide scrollbar for all browsers */
+.video-container::-webkit-scrollbar {
+    display: none;
 }
 
 .video-item {
-    width: 30%;
+    min-width: 30%;
     text-align: center;
     display: flex;
     flex-direction: column;
