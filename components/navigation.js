@@ -21,20 +21,20 @@ customElements.define(
             <a class="nav-logo">Logo</a>
             <div class="nav-links" id="navLinks">
                 <a class="icon-container nav-link" data-page="home">
-                <img class="mobile-icon nav-icon" src="./assets/icons/home.png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/home.png" alt="home" data-default-src="./assets/icons/home.png" data-active-src="./assets/icons/active-home.png" >
                 <span class="desktop-text">Home</span>
                 </a>
                 <a class="icon-container nav-link" data-page="video">
-                <img class="mobile-icon nav-icon" src="./assets/icons/play-alt (1).png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/video.png" alt="video" data-default-src="./assets/icons/video.png" data-active-src="./assets/icons/active-video.png">
                 <span class="desktop-text">Video</span>
                 </a>
                 <a class="icon-container nav-link" data-page="trainer">
-                <img class="mobile-icon nav-icon" src="./assets/icons/trainer.png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/trainer.png" alt="trainer" data-default-src="./assets/icons/trainer.png" data-active-src="./assets/icons/active-trainer.png">
                 <span class="desktop-text">Trainer</span>
                 </a>
                 <a class="icon-profile nav-link" data-page="profile">
                 <div>
-                    <img class="profile-img" src="./assets/images/16.png" alt="">
+                    <img class="profile-img" src="./assets/images/16.png" alt="profile">
                 </div>
                 <span class="active-dot">
                     <img src="./assets/icons/Vector.png" class="active-dot-logo" alt="">
