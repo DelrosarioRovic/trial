@@ -32,12 +32,52 @@ function getCurrentPageFromHash() {
 // Helper function to update active link
 function updateActiveLink(page) {
     const navLinks = document.querySelectorAll('.nav-link');
+    const navIcon = document.querySelectorAll('.nav-icon');
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('data-page') === page) {
             link.classList.add('active');
         }
     });
+
+    navIcon.forEach(link => {
+        link.classList.remove("active-icon");
+        if (link.getAttribute('data-page') === page) {
+            link.classList.add("active-icon");
+        }
+    });
+
+    console.log({navIcon});
+    
+
+    const activeImg = document.querySelector('.active-icon');
+
+    console.log(activeImg);
+    
+    if (activeImg) {
+        switch (page) {
+            case 'home':
+                console.log({page}, "home")
+                activeImg.src = 'images/home.png';
+                activeImg.alt = 'Home Image active';
+                break;
+            case 'about':
+                console.log({page}, "about")
+                activeImg.src = 'images/about.png';
+                activeImg.alt = 'About Image';
+                break;
+            case 'contact':
+                console.log({page}, "contact")
+                activeImg.src = 'images/contact.png';
+                activeImg.alt = 'Contact Image';
+                break;
+            default:
+                console.log({page}, "default")
+                activeImg.src = 'images/default.png';
+                activeImg.alt = 'Default Image';
+        }
+    }
 }
 
 // Centralized navigation function

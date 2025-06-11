@@ -21,15 +21,15 @@ customElements.define(
             <a class="nav-logo">Logo</a>
             <div class="nav-links" id="navLinks">
                 <a class="icon-container nav-link" data-page="home">
-                <img class="mobile-icon" src="./assets/icons/home.png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/home.png" alt="">
                 <span class="desktop-text">Home</span>
                 </a>
                 <a class="icon-container nav-link" data-page="video">
-                <img class="mobile-icon" src="./assets/icons/play-alt (1).png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/play-alt (1).png" alt="">
                 <span class="desktop-text">Video</span>
                 </a>
                 <a class="icon-container nav-link" data-page="trainer">
-                <img class="mobile-icon" src="./assets/icons/trainer.png" alt="">
+                <img class="mobile-icon nav-icon" src="./assets/icons/trainer.png" alt="">
                 <span class="desktop-text">Trainer</span>
                 </a>
                 <a class="icon-profile nav-link" data-page="profile">
