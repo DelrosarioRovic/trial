@@ -1,6 +1,6 @@
 :root {
   --yellow-color: #FFEE00;
-  --secondary-text-color: #ababab;
+  --gray: #ababab;
   --primary-text-color: #ffffff;
 }
 
@@ -44,7 +44,7 @@
 
 
 .nav-links a {
-  color: var(--secondary-text-color);
+  color: var(--gray);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@
   height: 45px; /* make height equal to width */
   overflow: hidden;
   border-radius: 100%; /* perfect circle */
-  border: 2px solid var(--yellow-color)
+  border: 2px solid var(--gray)
 }
 
 .profile-img {
@@ -84,7 +84,7 @@
   right: 13px;
   width: 12px;
   height: 12px;
-  background-color: var(--yellow-color); /* green dot */
+  background-color: var(--gray); /* green dot */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -93,6 +93,15 @@
 
 .active-dot img {
   width: 8px;
+}
+
+
+.active-profile {
+  border: 2px solid var(--yellow-color) !important;
+}
+
+.active-dot-green {
+  background-color: var(--yellow-color);
 }
 
 .active {
