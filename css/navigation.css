@@ -1,6 +1,7 @@
 :root {
   --yellow-color: #FFEE00;
   --secondary-text-color: #ababab;
+  --primary-text-color: #ffffff;
 }
 
 /* Base Styles */
@@ -92,6 +93,10 @@
 
 .active-dot img {
   width: 8px;
+}
+
+.active {
+  color: var(--primary-text-color) !important;
 }
 
 /* Mobile Navigation (Under 768px) */
