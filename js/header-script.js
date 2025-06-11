@@ -20,9 +20,9 @@ fetch("../components/navigation.html")
                 <img class="mobile-icon" src="./assets/icons/home.png" alt="">
                 <span class="desktop-text">Home</span>
               </a>
-              <a href="./search.html" class="icon-container">
-                <img class="mobile-icon" src="./assets/icons/search.png" alt="">
-                <span class="desktop-text">Search</span>
+              <a href="./trainer.html" class="icon-container">
+                <img class="mobile-icon" src="./assets/icons/trainer.png" alt="">
+                <span class="desktop-text">Trainer</span>
               </a>
               <a href="./video.html" class="icon-container">
                 <img class="mobile-icon" src="./assets/icons/play-alt (1).png" alt="">

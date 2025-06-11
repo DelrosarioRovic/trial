@@ -24,13 +24,13 @@ customElements.define(
                 <img class="mobile-icon" src="./assets/icons/home.png" alt="">
                 <span class="desktop-text">Home</span>
                 </a>
-                <a class="icon-container nav-link" data-page="search">
-                <img class="mobile-icon" src="./assets/icons/search.png" alt="">
-                <span class="desktop-text">Search</span>
-                </a>
                 <a class="icon-container nav-link" data-page="video">
                 <img class="mobile-icon" src="./assets/icons/play-alt (1).png" alt="">
                 <span class="desktop-text">Video</span>
+                </a>
+                <a class="icon-container nav-link" data-page="trainer">
+                <img class="mobile-icon" src="./assets/icons/trainer.png" alt="">
+                <span class="desktop-text">Trainer</span>
                 </a>
                 <a class="icon-profile nav-link" data-page="profile">
                 <div>

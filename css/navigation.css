@@ -1,5 +1,6 @@
 :root {
   --yellow-color: #FFEE00;
+  --secondary-text-color: #ababab;
 }
 
 /* Base Styles */
@@ -42,7 +43,7 @@
 
 
 .nav-links a {
-  color: white;
+  color: var(--secondary-text-color);
   text-decoration: none;
   display: flex;
   align-items: center;

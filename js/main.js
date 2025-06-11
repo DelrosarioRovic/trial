@@ -67,7 +67,7 @@ function loadPage(page) {
             loadHomePage(app);
             break;
         case 'searcn':
-            loadSearchPage(app);
+            loadTrainerPage(app);
             break;
         case 'video':
             loadVideoPage(app);
@@ -87,7 +87,7 @@ function loadHomePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/home.css'; // Path to your search page styles
+    style.href = './css/home.css'; // Path to your home page styles
     style.id = 'home-page-css'; // Give it an ID so we can remove it later
 
     console.log({
@@ -108,10 +108,10 @@ function loadHomePage(container) {
     };
 }
 
-function loadSearchPage(container) {
-    const searchPage = document.createElement('div');
-    searchPage.className = 'page search active';
-    searchPage.innerHTML = `
+function loadTrainerPage(container) {
+    const trainerPage = document.createElement('div');
+    trainerPage.className = 'page trainer active';
+    trainerPage.innerHTML = `
         <div class="about-content">
             <h1>About Us</h1>
             <p>We are a team of passionate developers creating modern web applications.</p>
@@ -120,13 +120,13 @@ function loadSearchPage(container) {
             <p>To build performant, accessible web applications that delight users.</p>
         </div>
     `;
-    container.appendChild(searchPage);
+    container.appendChild(trainerPage);
 
      // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'search-styles.css'; // Path to your search page styles
-    style.id = 'search-page-styles'; // Give it an ID so we can remove it later
+    style.href = 'trainer-styles.css'; // Path to your trainer page styles
+    style.id = 'trainer-page-styles'; // Give it an ID so we can remove it later
 
     // Append to head
     document.head.appendChild(style);
@@ -134,7 +134,7 @@ function loadSearchPage(container) {
     // You might want to remove this stylesheet when unmounting
     // Return a cleanup function
     return () => {
-        const styleElement = document.getElementById('search-page-styles');
+        const styleElement = document.getElementById('trainer-page-styles');
         if (styleElement) {
             document.head.removeChild(styleElement);
         }
@@ -148,7 +148,7 @@ function loadVideoPage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/video.css'; // Path to your search page styles
+    style.href = './css/video.css'; // Path to your video page styles
     style.id = 'video-page-css'; // Give it an ID so we can remove it later
 
     // Append to head
@@ -171,7 +171,7 @@ function loadProfilePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/profile.css'; // Path to your search page styles
+    style.href = './css/profile.css'; // Path to your profile page styles
     style.id = 'profile-page-css'; // Give it an ID so we can remove it later
 
     // Append to head
