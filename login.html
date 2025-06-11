@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <!-- Add Poppins from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/login-carousel.css" />
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
+
+<body>
+  <!-- Carousel Section -->
+  <div class="carousel" id="carousel">
+    <div class="slide active" style="background-image: url('./assets/images/login-carousel-1.jpg')"></div>
+    <div class="slide" style="background-image: url('./assets/images/login-carousel-2.jpg')"></div>
+    <div class="slide" style="background-image: url('./assets/images/login-carousel-3.jpg')"></div>
+    <a href="#" class="start-btn" id="startBtn">START YOUR FREE TRIAL</a>
+    <div class="controls">
+      <button class="control-btn active" data-index="0"></button>
+      <button class="control-btn" data-index="1"></button>
+      <button class="control-btn" data-index="2"></button>
+    </div>
+  </div>
+
+  <!-- Login Form Section -->
+  <div class="login-container" id="loginContainer">
+    <div class="form-container">
+      <h1 class="legend-title">LEGENDS</h1>
+      <div class="thirdparty-container">
+        <a href="index.html" class="google">
+          <img src="./assets/icons/google.png" alt="">
+          <span>Continue With Google</span>
+        </a>
+        <a href="index.html" class="facebook">
+          <img src="./assets/icons/facebook.png" alt="">
+          <span>Continue With Facebook</span>
+        </a>
+        <a href="index.html" class="twitter">
+          <img src="./assets/icons/twitter-alt.png" alt="">
+          <span>Continue With X</span>
+        </a>
+      </div>
+
+      <div class="cut-space">
+        <span class="horizontal-line"></span>
+        <span class="or-text">OR</span>
+        <span class="horizontal-line"></span>
+      </div>
+      <form class="form-container-input" action="">
+        <input class="input-class" type="text" placeholder="Username" name="" id="">
+        <input class="input-class" type="password" placeholder="Password" name="" id="">
+        <a href="index.html" class="login-btn">LOG IN</a>
+      </form>
+      <p class="warning-text">Don't have account yet? <span>Sign Up</span></p>
+    </div>
+  </div>
+    <script src="./js/auth-transition.js"></script>
+    <script src="./js/login-carousel.js"></script>
+</body>
+</html>
