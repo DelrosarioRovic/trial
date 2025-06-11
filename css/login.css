@@ -3,8 +3,23 @@
    --text-color: #ffffff;
 }
 
-.container {
-    background-color: #0a0a0a;
+.login-container {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: top 0.75s cubic-bezier(0.19, 0.8, 0.22, 1);
+  z-index: 30;
+  will-change: top;
+  backface-visibility: hidden;
+}
+
+.login-container.visible {
+  top: 0;
 }
 
 .form-container {
@@ -50,16 +65,19 @@
 .google {
     background-color: white;
     color: #1e1e1e;
+    text-decoration: none;
 }
 
 .facebook { 
     background-color: blue;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 .twitter{
     background-color: black;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 .cut-space {
