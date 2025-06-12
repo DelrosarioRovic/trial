@@ -92,7 +92,7 @@ function loadPage(page) {
         case 'home':
             loadHomePage(app);
             break;
-        case 'searcn':
+        case 'trainer':
             loadTrainerPage(app);
             break;
         case 'video':
@@ -135,25 +135,15 @@ function loadHomePage(container) {
 }
 
 function loadTrainerPage(container) {
-    const trainerPage = document.createElement('div');
-    trainerPage.className = 'page trainer active';
-    trainerPage.innerHTML = `
-        <div class="about-content">
-            <h1>About Us</h1>
-            <p>We are a team of passionate developers creating modern web applications.</p>
-            <p>This SPA demonstrates how to create a multi-page experience without framework dependencies.</p>
-            <h2>Our Mission</h2>
-            <p>To build performant, accessible web applications that delight users.</p>
-        </div>
-    `;
-    container.appendChild(trainerPage);
+    const homePage = document.createElement('trainer-page');
+    container.appendChild(homePage);
 
      // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = 'trainer-styles.css'; // Path to your trainer page styles
+    style.href = './css/trainer.css'; // Path to your trainer page styles
     style.id = 'trainer-page-styles'; // Give it an ID so we can remove it later
-
+    
     // Append to head
     document.head.appendChild(style);
 
