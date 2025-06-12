@@ -28,6 +28,12 @@
   font-display: swap;
 }
 
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+
 body {
   background-color: #0a0a0a;
   font-family: 'Poppins', sans-serif;
