@@ -11,7 +11,7 @@ customElements.define(
     connectedCallback() {
       this.innerHTML = `<!-- profile -->
       <section slot="profile">
-        <div class="container">
+        <div class="container-p">
           <!-- upper section -->
            <div class="upper-section">
             <div class="profile-frame">

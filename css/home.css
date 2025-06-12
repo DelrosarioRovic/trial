@@ -5,12 +5,13 @@
    --yellow-color: #FFEE00;
 }
 
-.container {
+.container-h {
     padding: 0 10px;
     padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     gap: 3em;
+    color: var(--text-color);
 }
 
 /* carousel section*/

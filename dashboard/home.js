@@ -11,7 +11,7 @@ customElements.define(
     connectedCallback() {
       this.innerHTML = `<!-- home -->
       <section slot="home">
-        <div class="container">
+        <div class="container-h">
           <div class="container-s">
             <div class="clip1">
               <img class="clip1-img" src="./assets/images/carousel-1.png" alt="">

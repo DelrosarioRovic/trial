@@ -11,7 +11,7 @@ customElements.define(
     connectedCallback() {
       this.innerHTML = `<!-- trainer -->
       <section slot="trainer">
-       <div class="container">
+       <div class="container-t">
           <div class="trainer-section">
             <div class="section-header">
               <h2>Meet Our Expert Trainers</h2>

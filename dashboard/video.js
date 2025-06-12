@@ -11,7 +11,7 @@ customElements.define(
     connectedCallback() {
       this.innerHTML = `<!-- video -->
       <section slot="video">
-        <div class="container">
+        <div class="container-v">
         <!-- boxing section -->
           <div class="section-container">
             <div class="section-header-container">
