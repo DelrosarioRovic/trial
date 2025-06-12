@@ -22,24 +22,28 @@ customElements.define(
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Jab</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing2.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Counter Punch</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing3.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Combination</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Jab</p>
               </div>
@@ -55,30 +59,35 @@ customElements.define(
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/muaythai1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Roundhouse Kick</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/muaythai2.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Front Kick</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/muaythai3.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Clinch</p>
               </div>
                <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/muaythai3.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Clinch</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/muaythai2.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Front Kick</p>
               </div>
@@ -94,24 +103,28 @@ customElements.define(
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/mma1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Ground & Pound</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/mma2.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Armbar</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/mma3.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Rear Naked Choke</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/mma1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Ground & Pound</p>
               </div>
@@ -127,24 +140,28 @@ customElements.define(
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Jab</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing2.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Counter Punch</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing3.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Combination</p>
               </div>
               <div class="video-item">
                 <div class="thumbnail-frame">
                   <img class="thumbnail-img" src="./assets/images/boxing1.png" alt="">
+                  <i class="fa-solid fa-play fa-xl video-icon"></i>
                 </div>
                 <p>Jab</p>
               </div>

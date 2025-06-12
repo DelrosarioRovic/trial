@@ -1,5 +1,6 @@
 :root {
   --text-color: #ffffff;
+  --gray-transparent: rgba(237, 237, 237, 0.7);
 }
 
 .container {
@@ -68,9 +69,18 @@
     height: 130px;
     overflow: hidden;
     border-radius: 5px;
+    position: relative;
 }
 
 .thumbnail-img {
     width: 100%;
     object-fit: cover;
+}
+
+.video-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the icon precisely */
+    color: var(--gray-transparent);
 }

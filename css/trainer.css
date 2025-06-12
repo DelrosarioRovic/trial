@@ -1,0 +1,27 @@
+:root {
+   --secondary-color: #7A100C;
+   --text-color: #ffffff;
+   --secondary-text-color: #ababab;
+   --yellow-color: #FFEE00;
+}
+
+.container {
+    color: var(--text-color);
+}
+
+.trainer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.trainer-container {
+    display: flex;
+    gap: 5;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.trainer {
+    display: flex;
+}
