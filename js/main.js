@@ -126,15 +126,6 @@ function loadHomePage(container) {
     style.href = './css/home.css';
     style.id = 'home-page-css';
     document.head.appendChild(style);
-
-    // Return cleanup function
-    return () => {
-        console.log('Cleaning up home page styles');
-        const styleElement = document.getElementById('home-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
 
 function loadTrainerPage(container) {
@@ -157,27 +148,6 @@ function loadTrainerPage(container) {
     currentPageCleanup = initializeTrainerCarousel();
   };
   document.body.appendChild(script);
-  
-  // Return cleanup function
-  return () => {
-    // Remove stylesheet
-    const styleElement = document.getElementById('trainer-page-styles');
-    if (styleElement) {
-      document.head.removeChild(styleElement);
-    }
-    console.log('Cleaning up trainer page resources');
-    
-    // Run the carousel cleanup if it exists
-    if (currentPageCleanup) {
-      currentPageCleanup();
-    }
-    
-    // Remove script
-    const scriptElement = document.getElementById('trainer-page-script');
-    if (scriptElement) {
-      document.body.removeChild(scriptElement);
-    }
-  };
 }
 
 function loadVideoPage(container) {
@@ -190,15 +160,6 @@ function loadVideoPage(container) {
     style.href = './css/video.css';
     style.id = 'video-page-css';
     document.head.appendChild(style);
-
-    // Return cleanup function
-    return () => {
-        console.log('Cleaning up video page styles');
-        const styleElement = document.getElementById('video-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
 
 function loadProfilePage(container) {
@@ -211,13 +172,4 @@ function loadProfilePage(container) {
     style.href = './css/profile.css';
     style.id = 'profile-page-css';
     document.head.appendChild(style);
-
-    // Return cleanup function
-    return () => {
-        console.log('Cleaning up profile page styles');
-        const styleElement = document.getElementById('profile-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
