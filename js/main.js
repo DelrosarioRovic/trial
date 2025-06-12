@@ -138,45 +138,46 @@ function loadHomePage(container) {
 }
 
 function loadTrainerPage(container) {
-    const trainerPage = document.createElement('trainer-page');
-    container.appendChild(trainerPage);
+  const trainerPage = document.createElement('trainer-page');
+  container.appendChild(trainerPage);
 
-    // Create and append stylesheet
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = './css/trainer.css';
-    style.id = 'trainer-page-styles';
-    document.head.appendChild(style);
+  // Create and append stylesheet
+  const style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = './css/trainer.css';
+  style.id = 'trainer-page-styles';
+  document.head.appendChild(style);
 
-     // Create and append script
-    const script = document.createElement('script');
-    script.src = './js/trainer-carousel.js';
-    script.id = 'trainer-page-script';
-    document.body.appendChild(script);
+  // Create and append script
+  const script = document.createElement('script');
+  script.src = './js/trainer-carousel.js';
+  script.id = 'trainer-page-script';
+  script.onload = function() {
+    // Initialize the carousel after script loads
+    currentPageCleanup = initializeTrainerCarousel();
+  };
+  document.body.appendChild(script);
+  
+  // Return cleanup function
+  return () => {
+    // Remove stylesheet
+    const styleElement = document.getElementById('trainer-page-styles');
+    if (styleElement) {
+      document.head.removeChild(styleElement);
+    }
+    console.log('Cleaning up trainer page resources');
     
-    // Return cleanup function
-    return () => {
-         console.log('Cleaning up trainer page resources');
-        
-        // Remove stylesheet
-        const styleElement = document.getElementById('trainer-page-styles');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-        
-        // Remove script
-        const scriptElement = document.getElementById('trainer-page-script');
-        if (scriptElement) {
-            document.body.removeChild(scriptElement);
-        }
-        
-        // Additional cleanup for any carousel instances or event listeners
-        // This depends on how your carousel is implemented
-        if (window.trainerCarouselInstance) {
-            window.trainerCarouselInstance.destroy(); // Example cleanup
-            delete window.trainerCarouselInstance;
-        }
-    };
+    // Run the carousel cleanup if it exists
+    if (currentPageCleanup) {
+      currentPageCleanup();
+    }
+    
+    // Remove script
+    const scriptElement = document.getElementById('trainer-page-script');
+    if (scriptElement) {
+      document.body.removeChild(scriptElement);
+    }
+  };
 }
 
 function loadVideoPage(container) {
