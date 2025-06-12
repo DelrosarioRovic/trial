@@ -1,3 +1,6 @@
+// Keep track of the current cleanup function
+let currentPageCleanup = null;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
     const initialPage = getCurrentPageFromHash();
@@ -31,7 +34,7 @@ function getCurrentPageFromHash() {
 
 // Helper function to update active link
 function updateActiveLink(page) {
-     const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
         const icon = link.querySelector('.nav-icon');
@@ -84,25 +87,32 @@ function loadPage(page) {
     const app = document.getElementById('app');
     console.log({page}, "loadpage");
     
-    // Clear previous content
+    // Clear previous content and run cleanup
+    if (currentPageCleanup) {
+        console.log('Running cleanup for previous page');
+        currentPageCleanup();
+        currentPageCleanup = null;
+    }
+    
+    // Clear the app container
     app.innerHTML = '';
     
     // Load the appropriate page
     switch(page) {
         case 'home':
-            loadHomePage(app);
+            currentPageCleanup = loadHomePage(app);
             break;
         case 'trainer':
-            loadTrainerPage(app);
+            currentPageCleanup = loadTrainerPage(app);
             break;
         case 'video':
-            loadVideoPage(app);
+            currentPageCleanup = loadVideoPage(app);
             break;
         case 'profile':
-            loadProfilePage(app);
+            currentPageCleanup = loadProfilePage(app);
             break;
         default:
-            loadHomePage(app);
+            currentPageCleanup = loadHomePage(app);
     }
 }
 
@@ -113,20 +123,13 @@ function loadHomePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/home.css'; // Path to your home page styles
-    style.id = 'home-page-css'; // Give it an ID so we can remove it later
-
-    console.log({
-      style
-    });
-    
-
-    // Append to head
+    style.href = './css/home.css';
+    style.id = 'home-page-css';
     document.head.appendChild(style);
 
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
+    // Return cleanup function
     return () => {
+        console.log('Cleaning up home page styles');
         const styleElement = document.getElementById('home-page-css');
         if (styleElement) {
             document.head.removeChild(styleElement);
@@ -135,24 +138,43 @@ function loadHomePage(container) {
 }
 
 function loadTrainerPage(container) {
-    const homePage = document.createElement('trainer-page');
-    container.appendChild(homePage);
+    const trainerPage = document.createElement('trainer-page');
+    container.appendChild(trainerPage);
 
-     // Create and append stylesheet
+    // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/trainer.css'; // Path to your trainer page styles
-    style.id = 'trainer-page-styles'; // Give it an ID so we can remove it later
-    
-    // Append to head
+    style.href = './css/trainer.css';
+    style.id = 'trainer-page-styles';
     document.head.appendChild(style);
 
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
+     // Create and append script
+    const script = document.createElement('script');
+    script.src = './js/trainer-carousel.js';
+    script.id = 'trainer-page-script';
+    document.body.appendChild(script);
+    
+    // Return cleanup function
     return () => {
+         console.log('Cleaning up trainer page resources');
+        
+        // Remove stylesheet
         const styleElement = document.getElementById('trainer-page-styles');
         if (styleElement) {
             document.head.removeChild(styleElement);
+        }
+        
+        // Remove script
+        const scriptElement = document.getElementById('trainer-page-script');
+        if (scriptElement) {
+            document.body.removeChild(scriptElement);
+        }
+        
+        // Additional cleanup for any carousel instances or event listeners
+        // This depends on how your carousel is implemented
+        if (window.trainerCarouselInstance) {
+            window.trainerCarouselInstance.destroy(); // Example cleanup
+            delete window.trainerCarouselInstance;
         }
     };
 }
@@ -164,15 +186,13 @@ function loadVideoPage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/video.css'; // Path to your video page styles
-    style.id = 'video-page-css'; // Give it an ID so we can remove it later
-
-    // Append to head
+    style.href = './css/video.css';
+    style.id = 'video-page-css';
     document.head.appendChild(style);
 
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
+    // Return cleanup function
     return () => {
+        console.log('Cleaning up video page styles');
         const styleElement = document.getElementById('video-page-css');
         if (styleElement) {
             document.head.removeChild(styleElement);
@@ -187,15 +207,13 @@ function loadProfilePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/profile.css'; // Path to your profile page styles
-    style.id = 'profile-page-css'; // Give it an ID so we can remove it later
-
-    // Append to head
+    style.href = './css/profile.css';
+    style.id = 'profile-page-css';
     document.head.appendChild(style);
 
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
+    // Return cleanup function
     return () => {
+        console.log('Cleaning up profile page styles');
         const styleElement = document.getElementById('profile-page-css');
         if (styleElement) {
             document.head.removeChild(styleElement);
