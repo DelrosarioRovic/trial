@@ -29,7 +29,12 @@ function initializeTrainerCarousel() {
 
   function handleTouchEnd(e) {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    const threshold = 50;
+    
+    if (Math.abs(touchEndX - touchStartX) > threshold) {
+      e.preventDefault(); // Prevent jump-to-top
+      handleSwipe();
+    }
   }
 
   function handleSwipe() {
@@ -54,7 +59,7 @@ function initializeTrainerCarousel() {
 
   // Add touch events
   carousel?.addEventListener('touchstart', handleTouchStart, { passive: true });
-  carousel?.addEventListener('touchend', handleTouchEnd, { passive: true });
+  carousel?.addEventListener('touchend', handleTouchEnd, { passive: false });
 
   // Auto-advance every 5 seconds
   intervalId = setInterval(() => showSlide(currentSlide + 1), 5000);
