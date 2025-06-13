@@ -28,8 +28,25 @@
   font-display: swap;
 }
 
+/* Add to your main CSS file */
+@media all and (display-mode: standalone) {
+  body {
+    /* Extra padding for notch devices */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Hide browser UI elements */
+  body.pwa-mode {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+/* iOS specific tweaks */
 @supports (-webkit-touch-callout: none) {
   body {
+    /* Prevent address bar show/hide from resizing content */
     min-height: -webkit-fill-available;
   }
 }
