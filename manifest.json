@@ -1,7 +1,7 @@
 {
   "name": "Legends Todo",
   "short_name": "Legends",
-  "start_url": "/",
+  "start_url": "/login.html",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
