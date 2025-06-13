@@ -132,7 +132,7 @@
     top: auto; /* Override sticky positioning */
     width: 100%;
     justify-content: space-around;
-    padding: 6px 0px 10px 0px;
+    padding: 4px 0px 10px 0px;
     border-top: 2px solid #1e1e1e;
   }
 
