@@ -2,6 +2,7 @@ const CACHE_NAME = 'legends-todo-v1';
 const ASSETS = [
   './',
   './index.html',
+  './login.html',
   './css/style.css',
   './css/login-carousel.css',
   './css/login.css',
@@ -13,7 +14,8 @@ const ASSETS = [
   './assets/images/login-carousel-3.jpg',
   './assets/icons/google.png',
   './assets/icons/facebook.png',
-  './assets/icons/twitter-alt.png'
+  './assets/icons/twitter-alt.png',
+  "./assets/(.*)",
 ];
 
 self.addEventListener('install', (e) => {
