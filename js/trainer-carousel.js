@@ -15,11 +15,6 @@ function initializeTrainerCarousel() {
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide]?.classList.add('active');
     dots[currentSlide]?.classList.add('active');
-
-    // Scroll to top of the carousel when slide changes
-    if (carousel) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   }
 
   // Dot click handlers
