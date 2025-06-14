@@ -30,7 +30,7 @@ customElements.define(
                 </a>
                 <a class="icon-container nav-link" data-page="trainer">
                 <img class="mobile-icon nav-icon" src="./assets/icons/trainer.png" alt="trainer" data-default-src="./assets/icons/trainer.png" data-active-src="./assets/icons/active-trainer.png">
-                <span class="desktop-text">Trainer</span>
+                <span class="desktop-text">Trainers</span>
                 </a>
                 <a class="icon-profile nav-link" data-page="profile">
                 <div class="icon-profile-active">

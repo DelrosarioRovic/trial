@@ -9,7 +9,7 @@
 
 /* Mobile Trainer Section */
 .container-t {
-  padding-bottom: 70px !important;
+  padding-bottom: 80px !important;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,9 @@
 .trainer-carousel {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  /* Add these to prevent iOS scroll jumping */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .trainer-slide {
@@ -43,8 +45,6 @@
   display: none;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 15px;
 }
 
 .trainer-slide.active {
@@ -118,12 +118,13 @@
   width: 100%;
   margin-top: 10px;
   color: var(--text-color);
+  
 }
 
 /* Carousel Dots */
 .carousel-dots {
   text-align: center;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .carousel-img {

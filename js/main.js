@@ -3,7 +3,7 @@ let currentPageCleanup = null;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
-    const initialPage = getCurrentPageFromHash();
+    const initialPage = getCurrentPageFromQuery();
     loadPage(initialPage);
     
     // Set active link based on current page
@@ -21,15 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function(e) {
-        const page = e.state?.page || getCurrentPageFromHash() || 'home';
+        const page = e.state?.page || getCurrentPageFromQuery() || 'home';
         loadPage(page);
         updateActiveLink(page);
     });
 });
 
-// Helper function to get current page from hash
-function getCurrentPageFromHash() {
-    return window.location.hash.substring(1).split('/')[0] || 'home';
+// ✅ Use query param instead of hash to get current page
+function getCurrentPageFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('page') || 'home';
 }
 
 // Helper function to update active link
@@ -75,7 +76,7 @@ function navigateTo(page) {
     loadPage(page);
     
     // Then update URL state
-    if (getCurrentPageFromHash() !== page) {
+    if (getCurrentPageFromQuery() !== page) {
         history.pushState({ page: page }, '', `#${page}`);
     }
     
