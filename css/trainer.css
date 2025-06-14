@@ -1,0 +1,220 @@
+:root {
+   --secondary-color: #7A100C;
+   --text-color: #ffffff;
+   --secondary-text-color: #ababab;
+   --yellow-color: #FFEE00;
+   --up-coming: #b1b1b157;
+   --legendary: #bfbc0060;
+}
+
+/* Mobile Trainer Section */
+.container-t {
+  padding-bottom: 80px !important;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+}
+
+.section-header {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.section-header h2 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.section-subtitle {
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+}
+
+/* Trainer Carousel */
+.trainer-carousel {
+  position: relative;
+  width: 100%;
+  /* Add these to prevent iOS scroll jumping */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+.trainer-slide {
+  width: 100%;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.trainer-slide.active {
+  display: block;
+}
+
+.trainer-img-frame {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.trainer-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.trainer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.trainer-status-1,
+.trainer-status-2 {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.trainer-specialty {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.trainer-specialty span {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+}
+
+.trainer-bio {
+  padding: 15px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--secondary-text-color);
+}
+
+.btn-book {
+  background: var(--secondary-color);
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 10px;
+  color: var(--text-color);
+  
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  text-align: center;
+  padding: 0;
+}
+
+.carousel-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: var(--text-color);
+}
+
+/* View All Button */
+.btn-view-all {
+ border: none;
+ outline: none;
+  background: transparent;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Categories Section */
+.categories-title {
+  font-size: 1.3rem;
+  margin: 25px 0 15px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.category-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 150px;
+}
+
+.category-img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%); /* Fine-tune centering */
+    object-fit: cover;
+    width: 100%;
+    z-index: -1;
+}
+
+.category-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.category-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.category-link {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.category-link i {
+  font-size: 0.7rem;
+}

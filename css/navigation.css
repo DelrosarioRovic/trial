@@ -1,5 +1,7 @@
 :root {
   --yellow-color: #FFEE00;
+  --gray: #ababab;
+  --primary-text-color: #ffffff;
 }
 
 /* Base Styles */
@@ -42,7 +44,7 @@
 
 
 .nav-links a {
-  color: white;
+  color: var(--gray);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -66,7 +68,7 @@
   height: 45px; /* make height equal to width */
   overflow: hidden;
   border-radius: 100%; /* perfect circle */
-  border: 2px solid var(--yellow-color)
+  border: 2px solid var(--gray)
 }
 
 .profile-img {
@@ -82,7 +84,7 @@
   right: 13px;
   width: 12px;
   height: 12px;
-  background-color: var(--yellow-color); /* green dot */
+  background-color: var(--gray); /* green dot */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -91,6 +93,19 @@
 
 .active-dot img {
   width: 8px;
+}
+
+
+.active-profile {
+  border: 2px solid var(--yellow-color) !important;
+}
+
+.active-dot-green {
+  background-color: var(--yellow-color);
+}
+
+.active {
+  color: var(--primary-text-color) !important;
 }
 
 /* Mobile Navigation (Under 768px) */
@@ -117,7 +132,7 @@
     top: auto; /* Override sticky positioning */
     width: 100%;
     justify-content: space-around;
-    padding: 6px 0px 3px 0px;
+    padding: 4px 0px 20px 0px;
     border-top: 2px solid #1e1e1e;
   }
 
