@@ -1,6 +1,9 @@
+// Keep track of the current cleanup function
+let currentPageCleanup = null;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
-    const initialPage = getCurrentPageFromHash();
+    const initialPage = getCurrentPageFromQuery();
     loadPage(initialPage);
     
     // Set active link based on current page
@@ -18,24 +21,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function(e) {
-        const page = e.state?.page || getCurrentPageFromHash() || 'home';
+        const page = e.state?.page || getCurrentPageFromQuery() || 'home';
         loadPage(page);
         updateActiveLink(page);
     });
 });
 
-// Helper function to get current page from hash
-function getCurrentPageFromHash() {
-    return window.location.hash.substring(1).split('/')[0] || 'home';
+// ✅ Use query param instead of hash to get current page
+function getCurrentPageFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('page') || 'home';
 }
 
 // Helper function to update active link
 function updateActiveLink(page) {
     const navLinks = document.querySelectorAll('.nav-link');
+
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('data-page') === page) {
-            link.classList.add('active');
+        const icon = link.querySelector('.nav-icon');
+        const isActive = link.getAttribute('data-page') === page;
+
+        // Set active class on link
+        link.classList.toggle('active', isActive);
+
+        if (icon) {
+            // Toggle active-icon class
+            icon.classList.toggle('active-icon', isActive);
+
+            // Switch icon src based on active state
+            const defaultSrc = icon.getAttribute('data-default-src');
+            const activeSrc = icon.getAttribute('data-active-src');
+
+            icon.src = isActive ? activeSrc : defaultSrc;
+        }
+
+        // Special handling for profile
+        if (link.classList.contains('icon-profile')) {
+            const profileIcon = link.querySelector('.icon-profile-active');
+            const dot = link.querySelector('.active-dot');
+
+            if (profileIcon) {
+                profileIcon.classList.toggle('active-profile', isActive);
+            }
+            if (dot) {
+                dot.classList.toggle('active-dot-green', isActive);
+            }
         }
     });
 }
@@ -46,7 +76,7 @@ function navigateTo(page) {
     loadPage(page);
     
     // Then update URL state
-    if (getCurrentPageFromHash() !== page) {
+    if (getCurrentPageFromQuery() !== page) {
         history.pushState({ page: page }, '', `#${page}`);
     }
     
@@ -58,25 +88,32 @@ function loadPage(page) {
     const app = document.getElementById('app');
     console.log({page}, "loadpage");
     
-    // Clear previous content
+    // Clear previous content and run cleanup
+    if (currentPageCleanup) {
+        console.log('Running cleanup for previous page');
+        currentPageCleanup();
+        currentPageCleanup = null;
+    }
+    
+    // Clear the app container
     app.innerHTML = '';
     
     // Load the appropriate page
     switch(page) {
         case 'home':
-            loadHomePage(app);
+            currentPageCleanup = loadHomePage(app);
             break;
-        case 'searcn':
-            loadSearchPage(app);
+        case 'trainer':
+            currentPageCleanup = loadTrainerPage(app);
             break;
         case 'video':
-            loadVideoPage(app);
+            currentPageCleanup = loadVideoPage(app);
             break;
         case 'profile':
-            loadProfilePage(app);
+            currentPageCleanup = loadProfilePage(app);
             break;
         default:
-            loadHomePage(app);
+            currentPageCleanup = loadHomePage(app);
     }
 }
 
@@ -87,58 +124,31 @@ function loadHomePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/home.css'; // Path to your search page styles
-    style.id = 'home-page-css'; // Give it an ID so we can remove it later
-
-    console.log({
-      style
-    });
-    
-
-    // Append to head
+    style.href = './css/home.css';
+    style.id = 'home-page-css';
     document.head.appendChild(style);
-
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
-    return () => {
-        const styleElement = document.getElementById('home-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
 
-function loadSearchPage(container) {
-    const searchPage = document.createElement('div');
-    searchPage.className = 'page search active';
-    searchPage.innerHTML = `
-        <div class="about-content">
-            <h1>About Us</h1>
-            <p>We are a team of passionate developers creating modern web applications.</p>
-            <p>This SPA demonstrates how to create a multi-page experience without framework dependencies.</p>
-            <h2>Our Mission</h2>
-            <p>To build performant, accessible web applications that delight users.</p>
-        </div>
-    `;
-    container.appendChild(searchPage);
+function loadTrainerPage(container) {
+  const trainerPage = document.createElement('trainer-page');
+  container.appendChild(trainerPage);
 
-     // Create and append stylesheet
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = 'search-styles.css'; // Path to your search page styles
-    style.id = 'search-page-styles'; // Give it an ID so we can remove it later
+  // Create and append stylesheet
+  const style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = './css/trainer.css';
+  style.id = 'trainer-page-styles';
+  document.head.appendChild(style);
 
-    // Append to head
-    document.head.appendChild(style);
-
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
-    return () => {
-        const styleElement = document.getElementById('search-page-styles');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
+  // Create and append script
+  const script = document.createElement('script');
+  script.src = './js/trainer-carousel.js';
+  script.id = 'trainer-page-script';
+  script.onload = function() {
+    // Initialize the carousel after script loads
+    currentPageCleanup = initializeTrainerCarousel();
+  };
+  document.body.appendChild(script);
 }
 
 function loadVideoPage(container) {
@@ -148,20 +158,9 @@ function loadVideoPage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/video.css'; // Path to your search page styles
-    style.id = 'video-page-css'; // Give it an ID so we can remove it later
-
-    // Append to head
+    style.href = './css/video.css';
+    style.id = 'video-page-css';
     document.head.appendChild(style);
-
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
-    return () => {
-        const styleElement = document.getElementById('video-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
 
 function loadProfilePage(container) {
@@ -171,18 +170,7 @@ function loadProfilePage(container) {
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
-    style.href = './css/profile.css'; // Path to your search page styles
-    style.id = 'profile-page-css'; // Give it an ID so we can remove it later
-
-    // Append to head
+    style.href = './css/profile.css';
+    style.id = 'profile-page-css';
     document.head.appendChild(style);
-
-    // You might want to remove this stylesheet when unmounting
-    // Return a cleanup function
-    return () => {
-        const styleElement = document.getElementById('profile-page-css');
-        if (styleElement) {
-            document.head.removeChild(styleElement);
-        }
-    };
 }
