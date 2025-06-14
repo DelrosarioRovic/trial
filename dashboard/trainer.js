@@ -34,7 +34,7 @@ customElements.define(
                   </div>
                 </div>
                 <div class="trainer-bio">
-                  <p>Former amateur boxing champion with 5 years coaching experience. Specializes in footwork and defensive techniques.</p>
+                  <p>Former amateur boxing champion with 5+ years professional coaching experience. Specializes in advanced footwork and defensive techniques.</p>
                   <button class="btn-book">Book Session</button>
                 </div>
               </div>
@@ -53,7 +53,7 @@ customElements.define(
                   </div>
                 </div>
                 <div class="trainer-bio">
-                  <p>UFC veteran with 15+ years training elite fighters. His conditioning programs are legendary in the industry.</p>
+                  <p>UFC veteran with 15+ years experience training champion fighters. Renowned worldwide for elite-level conditioning and strength programs.</p>
                   <button class="btn-book">Book Session</button>
                 </div>
               </div>
