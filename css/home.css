@@ -7,11 +7,11 @@
 
 .container-h {
     padding: 0 10px;
-    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 1.5em;
     color: var(--text-color);
+    padding-bottom: 90px;
 }
 
 /* carousel section*/
@@ -72,7 +72,7 @@
 .container-s {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
 }
@@ -129,10 +129,11 @@
 }
 
 .popular-e-item div {
-    height: 150px;
-    min-height: 140px;
+    height: 100px;
+    min-height: 120px;
     overflow: hidden;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .popular-img {

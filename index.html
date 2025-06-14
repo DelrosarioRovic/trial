@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <!-- For fullscreen when added to home screen -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
   <title>My SPA</title>
   <link rel="stylesheet" href="./css/style.css" />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Legends">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./assets/pwa-assets/icon-192x192.png">
+
+<!-- Splash screen (optional) -->
+<!-- <link rel="apple-touch-startup-image" href="/splash.png"> -->
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#000000">
   <script src="https://kit.fontawesome.com/1b864826e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,12 +27,12 @@
   <div id="app">
     <!-- Content will load here -->
   </div>
-  
+
   <script src="./js/main.js"></script>
   <script src="./components/navigation.js"></script>
   <script src="./js/prevent-zoom.js"></script>
-  <script src="./js/hide-address-bar.js"></script>
-  
+  <!-- <script src="./js/hide-address-bar.js"></script> -->
+  <script src="./js/register-services-worker.js"></script>
   <!-- pages script -->
    <script src="./dashboard/home.js"></script>
    <script src="./dashboard/profile.js"></script>
