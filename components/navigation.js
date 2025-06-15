@@ -13,10 +13,6 @@ customElements.define(
       <section slot="navBar">
         <header class="header" id="header">
           <!-- Top Nav -->
-          <div class="header-container">
-            <h2 class="home-title">LEGENDS</h2>
-            <img src="./assets/icons/search.png" class="search-icon" alt="">
-        </div>
             <nav class="navbar" id="navbar">
             <a class="nav-logo">Logo</a>
             <div class="nav-links" id="navLinks">

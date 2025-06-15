@@ -1,5 +1,8 @@
 /* style.css */
 @import url('./navigation.css');
+@import url('./header.css');
+@import url('./specific-video.css');
+@import url('./full-screen-video.css');
 
 /* Poppins Regular (400) */
 @font-face {
@@ -67,4 +70,9 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   height: 100svh;
+}
+
+.main-container {
+  position: relative;
+  height: 100vh;
 }
