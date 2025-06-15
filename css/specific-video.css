@@ -9,6 +9,7 @@
 
 /* specific video container screen */
 .specific-video-container {
+  display: none;
   position: absolute;
   inset: 0;
   background-color: var(--background-color);
@@ -16,6 +17,9 @@
   color: var(--text-color);
 }
 
+.floating-active {
+    display: block;
+}
 
 .specific-video-box {
     position: relative;
