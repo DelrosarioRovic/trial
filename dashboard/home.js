@@ -33,38 +33,38 @@ customElements.define(
           <div>
             <h2 class="popular-title">POPULAR VIDEOS</h2>
             <div class="popular-container">
-              <a href="#specific-video" class="popular-e-item specific-video" data-page="home">
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-1.png" alt="">
                 </div>
                 <p class="popular-e-item-t-text">MuayThai</p>
                 <p>Beginer</p>
                 <p>Mark Duncan</p>
-              </a>
-              <a href="#specific-video" class="popular-e-item specific-video" data-page="home">
+              </div>
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-2.png" alt="">
                 </div>
                 <p class="popular-e-item-t-text">Jiu- Jitsu</p>
                 <p>Intermediate</p>
                 <p>James Lee</p>
-              </a>
-              <a href="#specific-video" class="popular-e-item specific-video" data-page="home">
+              </div>
+              <div  class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-3.png" alt="">
                 </div>
                 <p class="popular-e-item-t-text">Kick Boxing</p>
                 <p>All Level</p>
                 <p>David Chan</p>
-              </a>
-              <a href="#specific-video" class="popular-e-item specific-video" data-page="home">
+              </div>
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-4.png" alt="">
                 </div>
                 <p class="popular-e-item-t-text">Kick Boxing</p>
                 <p>Beginer</p>
                 <p>Sarah Collins</p>
-              </a>
+              </div>
             </div>
           </div>
           <!-- live -->
