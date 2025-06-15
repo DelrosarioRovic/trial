@@ -22,11 +22,6 @@
   font-size: 18px;
 }
 
-.search-icon {
-  display: none; /* Hidden on desktop */
-}
-
-
 /* Desktop Navigation (Default) */
 .navbar {
   justify-content: space-between;
@@ -111,15 +106,6 @@
 /* Mobile Navigation (Under 768px) */
 @media (max-width: 768px) {
   /* MEDIA QUERY */
-  .header-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 50px; /* or your desired height */
-    padding: 20px;
-    margin-bottom: 10px;
-  }
-
   .home-title {
     position: absolute;
     left: 50%;
@@ -134,6 +120,7 @@
     justify-content: space-around;
     padding: 4px 0px 20px 0px;
     border-top: 2px solid #1e1e1e;
+    z-index: 50;
   }
 
   .nav-logo {
@@ -148,11 +135,7 @@
     font-size: 10px;
   }
 
-    .search-icon {
-      margin-left: auto; /* push to the right */
-      display: block; /* Show icons */
-      width: 22px;
-    }
+
 
   .mobile-icon {
     display: block; /* Show icons */

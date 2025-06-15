@@ -23,15 +23,79 @@
   <script src="https://kit.fontawesome.com/1b864826e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  
   <nav-bar></nav-bar>
-  <div id="app">
-    <!-- Content will load here -->
+  <div class="main-container">
+    <header-initial></header-initial>
+    <!-- initial content -->
+    <div id="app">
+      <!-- Content will load here -->
+    </div>
+    <!-- floating content specific video container -->
+     <!-- <specific-video>
+
+     </specific-video> -->
+     
+    <div class="specific-video-container">
+      <div class="specific-video-header-container">
+        <i class="fas fa-arrow-left fa-2xl back-button" style="color: #ffffff"></i>
+        <h2 class="header-subscribe">SUBSCRIBE</h2>
+       </div>
+       <div class="specific-video-box">
+        <div class="specific-video-frame">
+          <video width="100%" id="specific-video-id">
+            <source src="./assets/video/sample.mp4" type="video/mp4">
+            <source src="./assets/video/sample.mp4" type="video/ogg">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="specific-video-controller">
+          <div class="specific-progress-container" id="specific-progress-container">
+            <div class="specific-progress-bar" id="specific-progress-bar">
+              <div class="specific-progress-thumb" id="specific-progress-thumb"></div>
+            </div>
+          </div>
+          <div class="specific-controls-row">
+            <div>
+              <i class="fa-solid fa-play fa-2xl play-pause-btn" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-forward-step fa-2xl forward-btn" style="color: #ffffff;"></i>
+            </div>
+            <i class="fa-solid fa-angle-right fa-2xl skip-forward-btn" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-expand fa-2xl fullscreen-btn" style="color: #ffffff;"></i>
+          </div>
+        </div>
+        </div>
+        <div class="specific-video-content">
+          <h3 class="specific-video-content-title">Striking Combinations</h3>
+          <p class="specific-video-content-name">Michael Chang</p>
+          <div class="specific-social-container">
+            <p>35,000 views</p>
+            <div class="specific-social-control-c">
+              <i class="fa-regular fa-thumbs-up fa-lg" style="color: #ffffff;"></i>
+              <p>1,2k</p>
+              <i class="fa-solid fa-share fa-lg" style="color: #ffffff;"></i>
+            </div>
+          </div>
+          <div class="specific-video-content-horizontal-line"></div>
+          <p class="specific-video-description">Improve your striking skills with these combinations.</p>
+          <div class="specific-video-comments-container">
+            <i class="fa-regular fa-comment fa-xl"></i>
+            <p class="specific-video-comment">28 comments</p>
+          </div>
+        </div>
+       </div> 
+
+    </div>
+    <!-- floating content full screen container -->
+
   </div>
+
 
   <script src="./js/main.js"></script>
   <script src="./components/navigation.js"></script>
+  <script src="./components/header.js"></script>
+  <script src="./js/specific-video-script.js"></script>
   <script src="./js/prevent-zoom.js"></script>
-  <!-- <script src="./js/hide-address-bar.js"></script> -->
   <script src="./js/register-services-worker.js"></script>
   <!-- pages script -->
    <script src="./dashboard/home.js"></script>
