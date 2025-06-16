@@ -5,7 +5,6 @@ let currentFloatingCleanup = null
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
     const initialPage = getCurrentPageFromQuery();
-    
     loadPage(initialPage);
     
     // Set active link based on current page
@@ -80,7 +79,6 @@ function navigateTo(page) {
     if (getCurrentPageFromQuery() !== page) {
         history.pushState({ page: page }, '', `#${page}`);
     }
-
     // Hide specific video container if it exists
     const specificElement = document.getElementById('specific-video-container');
     if (specificElement) {
@@ -93,19 +91,16 @@ function navigateTo(page) {
 
 function loadPage(page) {
     const app = document.getElementById('app');
-    
     // Clear previous content and run cleanup
     if (currentPageCleanup) {
         console.log('Running cleanup for previous page');
         currentPageCleanup();
         currentPageCleanup = null;
     }
-
     if (currentFloatingCleanup) {
         currentFloatingCleanup.remove();
         currentFloatingCleanup = null;
     }
-
     // Clear the app container
     app.innerHTML = '';
     
@@ -126,8 +121,6 @@ function loadPage(page) {
         default:
             currentPageCleanup = loadHomePage(app);
     }
-
-    
     // ✅ Globally initialize after DOM is updated
     setTimeout(() => {
         console.log("test 1", currentFloatingCleanup);

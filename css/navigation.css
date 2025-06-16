@@ -1,3 +1,9 @@
+:root {
+  --yellow-color: #FFEE00;
+  --gray: #ababab;
+  --primary-text-color: #ffffff;
+}
+
 /* Base Styles */
 * {
   margin: 0;
@@ -15,6 +21,7 @@
   color: var(--text-color);
   font-size: 18px;
 }
+
 
 /* Desktop Navigation (Default) */
 .navbar {
@@ -128,8 +135,6 @@
     align-items: flex-end;
     font-size: 10px;
   }
-
-
 
   .mobile-icon {
     display: block; /* Show icons */
