@@ -1,5 +1,5 @@
 :root {
-   --secondary-color: #7A100C;
+   --secondary-color: #d62822;
    --text-color: #ffffff;
    --secondary-text-color: #ababab;
    --yellow-color: #FFEE00;
@@ -9,16 +9,11 @@
 
 /* specific video container screen */
 .specific-video-container {
-  display: none;
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-color: var(--background-color);
   z-index: 10;
   color: var(--text-color);
-}
-
-.floating-active {
-    display: block;
 }
 
 .specific-video-box {
@@ -68,14 +63,13 @@
         background: var(--secondary-color);
         border-radius: 3px;
         width: 0%;
-        position: relative;
     }
     
     .specific-progress-thumb {
         position: absolute;
-        right: -6px;
+        left: 0; /* Changed from right: -6px */
         top: 50%;
-        transform: translateY(-50%);
+        transform: translate(-50%, -50%); /* Adjusted to center the thumb */
         width: 12px;
         height: 12px;
         background: var(--secondary-color);

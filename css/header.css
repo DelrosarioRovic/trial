@@ -1,5 +1,5 @@
 :root {
-   --secondary-color: #d61a13;
+   --secondary-color: #d62822;
    --text-color: #ffffff;
    --secondary-text-color: #ababab;
    --yellow-color: #FFEE00;
@@ -38,5 +38,15 @@
 
   .header-subscribe {
     color: var(--secondary-color);
+  }
+
+
+  /* fullscreen video css */
+  .fullscreen-video-header-container {
+    position: absolute;
+    display: flex;
+    height: 50px; /* or your desired height */
+    padding: 30px 20px;
+    z-index: 5;
   }
 }

@@ -1,9 +1,11 @@
 // Keep track of the current cleanup function
 let currentPageCleanup = null;
+let currentFloatingCleanup = null
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
     const initialPage = getCurrentPageFromQuery();
+    
     loadPage(initialPage);
     
     // Set active link based on current page
@@ -28,9 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ✅ Use query param instead of hash to get current page
-function getCurrentPageFromQuery() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('page') || 'home';
+function getCurrentPageFromQuery() {    
+    return window.location.hash.replace('#', '') || 'home';
 }
 
 // Helper function to update active link
@@ -79,6 +80,12 @@ function navigateTo(page) {
     if (getCurrentPageFromQuery() !== page) {
         history.pushState({ page: page }, '', `#${page}`);
     }
+
+    // Hide specific video container if it exists
+    const specificElement = document.getElementById('specific-video-container');
+    if (specificElement) {
+        specificElement.style.display = 'none';
+    }
     
     // Update active link
     updateActiveLink(page);
@@ -86,7 +93,6 @@ function navigateTo(page) {
 
 function loadPage(page) {
     const app = document.getElementById('app');
-    console.log({page}, "loadpage");
     
     // Clear previous content and run cleanup
     if (currentPageCleanup) {
@@ -94,7 +100,12 @@ function loadPage(page) {
         currentPageCleanup();
         currentPageCleanup = null;
     }
-    
+
+    if (currentFloatingCleanup) {
+        currentFloatingCleanup.remove();
+        currentFloatingCleanup = null;
+    }
+
     // Clear the app container
     app.innerHTML = '';
     
@@ -115,6 +126,19 @@ function loadPage(page) {
         default:
             currentPageCleanup = loadHomePage(app);
     }
+
+    
+    // ✅ Globally initialize after DOM is updated
+    setTimeout(() => {
+        console.log("test 1", currentFloatingCleanup);
+        
+        try {
+            // This will only attach if the right DOM is there
+            CreateSpecificVideoscreen();
+        } catch (e) {
+            console.warn('Video controls failed to initialize:', e);
+        }
+    }, 100); // wait for component render
 }
 
 function loadHomePage(container) {

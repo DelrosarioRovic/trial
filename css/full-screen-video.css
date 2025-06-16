@@ -1,0 +1,124 @@
+:root {
+   --secondary-color: #d62822;
+   --text-color: #ffffff;
+   --secondary-text-color: #ababab;
+   --dark-color: #424242b4;
+   --yellow-color: #FFEE00;
+   --background-color: #0a0a0a;
+   --secondary-bg-color: #1e1e1e;
+}
+
+/* fullscreen video container screen */
+.fullscreen-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: 51;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 100svh;
+}
+
+.fullscreen-video-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#fullscreen-video-id {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* bottom container content, controls and description text and etc */
+
+.fullscreen-bottom-container {
+  width: 100%;
+  height: 400px;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fullscreen-video-title {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.fullscreen-video-uname {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.fullscreen-progress-container {
+  width: 100%;
+  height: 6px;
+  background: var(--dark-color);
+  border-radius: 3px;
+  margin: 20px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.fullscreen-progress-bar {
+  height: 100%;
+  background: var(--text-color);
+  border-radius: 3px;
+  width: 0%;
+}
+
+.fullscreen-progress-thumb {
+  position: absolute;
+  left: 0; /* Changed from right: -6px */
+  top: 50%;
+  transform: translate(-50%, -50%); /* Adjusted to center the thumb */
+  width: 12px;
+  height: 12px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.fullscreen-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--secondary-text-color);
+}
+
+.fullscreen-controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 32px 0;
+}
+
+.fullscreen-controls-container span {
+  width: 30px;
+  height: 100%;
+}
+
+.fullscreen-description-text {
+  font-size: 20px;
+  font-weight: 400;
+}

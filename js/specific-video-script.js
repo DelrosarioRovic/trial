@@ -1,13 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+
+function initializeSpecificVideoControls() {
   const video = document.getElementById('specific-video-id');
-  const playPauseBtn = document.querySelector('.play-pause-btn');
-  const forwardBtn = document.querySelector('.forward-btn');
-  const skipForwardBtn = document.querySelector('.skip-forward-btn');
-  const fullscreenBtn = document.querySelector('.fullscreen-btn');
+  if (!video) return;
+  const playPauseBtn = document.querySelector('.specific-play-pause-btn');
+  const forwardBtn = document.querySelector('.specific-forward-btn');
+  const skipForwardBtn = document.querySelector('.specific-skip-forward-btn');
   const progressBar = document.getElementById('specific-progress-bar');
   const progressThumb = document.getElementById('specific-progress-thumb');
-  const backButton = document.querySelector('.back-button');
-  
+  const backButton = document.getElementById('specific-video-back-btn');
+
   // Play/Pause functionality
   playPauseBtn.addEventListener('click', function() {
     if (video.paused) {
@@ -30,31 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Fullscreen functionality
-  fullscreenBtn.addEventListener('click', function() {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) {
-      video.msRequestFullscreen();
-    }
-  });
+  CreateFullScreenVideo();
   
-  // Progress bar functionality
-  progressBar.addEventListener('click', function(e) {
-    const percent = e.offsetX / this.offsetWidth;
-    video.currentTime = percent * video.duration;
-  });
-  
-  // Update progress bar as video plays
-  video.addEventListener('timeupdate', function() {
-    const percent = (video.currentTime / video.duration) * 100;
-    progressThumb.style.width = percent + '%';
-  });
+  // Progress bar functionality - fixed version
+const progressContainer = document.querySelector('.specific-progress-container');
+progressContainer.addEventListener('click', function(e) {
+  const rect = this.getBoundingClientRect();
+  const percent = (e.clientX - rect.left) / rect.width;
+  video.currentTime = percent * video.duration;
+});
+
+// Also update the thumb position on timeupdate
+video.addEventListener('timeupdate', function() {
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = percent + '%';
+  progressThumb.style.left = `calc(${percent}% - 6px)`; // Adjust for thumb width
+});
   
   // Back button functionality
   backButton.addEventListener('click', function() {
-    window.history.back();
+    currentFloatingCleanup.remove();
   });
   
   // Toggle controls when video is hovered (optional)
@@ -68,4 +64,4 @@ document.addEventListener('DOMContentLoaded', function() {
   videoContainer.addEventListener('mouseleave', function() {
     videoController.style.opacity = '0';
   });
-});
+}

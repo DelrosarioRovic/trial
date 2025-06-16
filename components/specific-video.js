@@ -13,30 +13,30 @@ customElements.define(
       <section slot="specificVideo">
         <div class="specific-video-container" id="specific-video-container">
           <div class="specific-video-header-container">
-            <i class="fas fa-arrow-left fa-2xl back-button" style="color: #ffffff"></i>
+            <i class="fas fa-arrow-left fa-2xl specific-video-back-btn" id="specific-video-back-btn" style="color: #ffffff"></i>
             <h2 class="header-subscribe">SUBSCRIBE</h2>
            </div>
            <div class="specific-video-box">
             <div class="specific-video-frame">
               <video width="100%" id="specific-video-id">
-                <source src="./assets/video/sample.mp4" type="video/mp4">
-                <source src="./assets/video/sample.mp4" type="video/ogg">
+                <source src="./assets/video/sample1.webp" type="video/webp">
+                <source src="./assets/video/sample1.webp" type="video/ogg">
                 Your browser does not support HTML5 video.
               </video>
             </div>
             <div class="specific-video-controller">
-              <div class="specific-progress-container" id="specific-progress-container">
+              <div class="specific-progress-container">
                 <div class="specific-progress-bar" id="specific-progress-bar">
                   <div class="specific-progress-thumb" id="specific-progress-thumb"></div>
                 </div>
               </div>
               <div class="specific-controls-row">
                 <div>
-                  <i class="fa-solid fa-play fa-2xl play-pause-btn" style="color: #ffffff;"></i>
-                  <i class="fa-solid fa-forward-step fa-2xl forward-btn" style="color: #ffffff;"></i>
+                  <i class="fa-solid fa-play fa-2xl specific-play-pause-btn" style="color: #ffffff;"></i>
+                  <i class="fa-solid fa-forward-step fa-2xl specific-forward-btn" style="color: #ffffff;"></i>
                 </div>
-                <i class="fa-solid fa-angle-right fa-2xl skip-forward-btn" style="color: #ffffff;"></i>
-                <i class="fa-solid fa-expand fa-2xl fullscreen-btn" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-angle-right fa-2xl specific-skip-forward-btn" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-expand fa-2xl fullscreen-btn" id="fullscreen-btn" style="color: #ffffff;"></i>
               </div>
             </div>
             </div>
