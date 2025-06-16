@@ -1,0 +1,146 @@
+/* specific video container screen */
+.specific-video-container {
+  position: fixed;
+  inset: 0;
+  background-color: var(--background-color);
+  z-index: 10;
+  color: var(--text-color);
+}
+
+.specific-video-box {
+    position: relative;
+}
+
+.specific-video-frame {
+    position: relative;
+    height: 380px;
+}
+
+
+#specific-video-id {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+.specific-video-controller {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+}
+
+/* progress control or slide video controller */
+   .specific-progress-container {
+        width: 100%;
+        height: 6px;
+        background: var(--secondary-bg-color);
+        border-radius: 3px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .specific-progress-bar {
+        height: 100%;
+        background: var(--secondary-color);
+        border-radius: 3px;
+        width: 0%;
+    }
+    
+    .specific-progress-thumb {
+        position: absolute;
+        left: 0; /* Changed from right: -6px */
+        top: 50%;
+        transform: translate(-50%, -50%); /* Adjusted to center the thumb */
+        width: 12px;
+        height: 12px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    
+    .specific-progress-container:hover .specific-progress-thumb {
+        opacity: 1;
+    }
+
+/* other controls */
+.specific-controls-row {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* play and forward container */
+.specific-controls-row div {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+
+/* specific video content */
+.specific-video-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding:25px 15px ;
+}
+.specific-video-content-title {
+    font-size: 24px;
+}
+.specific-video-content-name {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}
+
+.specific-social-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-text-color);
+    font-size: 16px;
+}
+
+.specific-social-control-c {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.specific-video-content-horizontal-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--secondary-bg-color);
+    margin-top: 10px;
+}
+
+.specific-video-description {
+    font-size: 16px;
+}
+
+.specific-video-comments-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.specific-video-comment {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}

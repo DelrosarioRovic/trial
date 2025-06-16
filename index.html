@@ -24,20 +24,39 @@
 </head>
 <body>
   <nav-bar></nav-bar>
-  <div id="app">
-    <!-- Content will load here -->
+  <div class="main-container">
+    <header-initial></header-initial>
+    <!-- initial content -->
+    <div id="app">
+      <!-- Content will load here -->
+    </div>
+    <!-- floating content video container specfic or fullscreen -->
+     <div id="floating-content">
+        
+     </div>
+    </div>
   </div>
 
   <script src="./js/main.js"></script>
-  <script src="./components/navigation.js"></script>
+  <!-- control script for specific video screen -->
+  <script src="./js/specific-video-script.js"></script>
+  <!-- control script for full screen video -->
+   <script src="./js/fullscreen-video-script.js"></script>
+  <!-- preventing zoom in ios and android so user can zoom -->
   <script src="./js/prevent-zoom.js"></script>
-  <!-- <script src="./js/hide-address-bar.js"></script> -->
+  <!-- this is for a script use for activating or when something is click a floating screen like specific videos and specific full screen video -->
+  <script src="./js/activate-float.js"></script>
+  <!-- pwa script -->
   <script src="./js/register-services-worker.js"></script>
+  <!-- components script -->
+  <script src="./components/navigation.js"></script>
+  <script src="./components/header.js"></script>
   <!-- pages script -->
    <script src="./dashboard/home.js"></script>
    <script src="./dashboard/profile.js"></script>
    <script src="./dashboard/video.js"></script>
    <script src="./dashboard/trainer.js"></script>
-   
+   <script src="./components/specific-video.js"></script>
+   <script src="./components/full-screen.js"></script>
 </body>
 </html>

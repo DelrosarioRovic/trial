@@ -1,0 +1,45 @@
+/* Mobile Navigation (Under 768px) */
+@media (max-width: 768px) {
+  /* MEDIA QUERY */
+  /* initial header css */
+  .initial-header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px; /* or your desired height */
+    padding: 30px 20px;
+    margin-bottom: 5x;
+  }
+
+  .search-icon {
+    margin-left: auto; /* push to the right */
+    display: block; /* Show icons */
+    width: 22px;
+  }
+
+  /* specific video css */
+  .specific-video-header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px; /* or your desired height */
+    padding: 30px 20px;
+    margin-bottom: 5x;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .header-subscribe {
+    color: var(--secondary-color);
+  }
+
+
+  /* fullscreen video css */
+  .fullscreen-video-header-container {
+    position: absolute;
+    display: flex;
+    height: 50px; /* or your desired height */
+    padding: 30px 20px;
+    z-index: 5;
+  }
+}

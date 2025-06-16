@@ -1,12 +1,3 @@
-:root {
-   --secondary-color: #7A100C;
-   --text-color: #ffffff;
-   --secondary-text-color: #ababab;
-   --yellow-color: #FFEE00;
-   --up-coming: #b1b1b157;
-   --legendary: #bfbc0060;
-}
-
 /* Mobile Trainer Section */
 .container-t {
   padding-bottom: 80px !important;

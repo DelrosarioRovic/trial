@@ -33,7 +33,7 @@ customElements.define(
           <div>
             <h2 class="popular-title">POPULAR VIDEOS</h2>
             <div class="popular-container">
-              <div class="popular-e-item">
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-1.png" alt="">
                 </div>
@@ -41,7 +41,7 @@ customElements.define(
                 <p>Beginer</p>
                 <p>Mark Duncan</p>
               </div>
-              <div class="popular-e-item">
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-2.png" alt="">
                 </div>
@@ -49,7 +49,7 @@ customElements.define(
                 <p>Intermediate</p>
                 <p>James Lee</p>
               </div>
-              <div class="popular-e-item">
+              <div  class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-3.png" alt="">
                 </div>
@@ -57,7 +57,7 @@ customElements.define(
                 <p>All Level</p>
                 <p>David Chan</p>
               </div>
-              <div class="popular-e-item">
+              <div class="popular-e-item specific-video">
                 <div>
                   <img class="popular-img" src="./assets/images/popular-4.png" alt="">
                 </div>
