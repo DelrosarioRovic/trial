@@ -19,8 +19,8 @@ customElements.define(
            <div class="specific-video-box">
             <div class="specific-video-frame">
               <video width="100%" id="specific-video-id">
-                <source src="./assets/video/sample.mp4" type="video/mp4">
-                <source src="./assets/video/sample.mp4" type="video/ogg">
+                <source src="https://ik.imagekit.io/ldhtvbchc/video/sample.mp4?updatedAt=1750062019904" type="video/mp4">
+                <source src="https://ik.imagekit.io/ldhtvbchc/video/sample.mp4?updatedAt=1750062019904" type="video/ogg">
                 Your browser does not support HTML5 video.
               </video>
             </div>

@@ -17,7 +17,7 @@ customElements.define(
          </div>
          <div class="fullscreen-video-content">
            <video id="fullscreen-video-id">
-             <source src="./assets/video/boxing-fullscreen.mp4" type="video/mp4">
+             <source src="https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231" type="video/mp4">
              Your browser does not support the video tag.
            </video>
          </div>
