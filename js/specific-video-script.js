@@ -52,16 +52,4 @@ video.addEventListener('timeupdate', function() {
   backButton.addEventListener('click', function() {
     currentFloatingCleanup.remove();
   });
-  
-  // Toggle controls when video is hovered (optional)
-  const videoContainer = document.querySelector('.specific-video-box');
-  const videoController = document.querySelector('.specific-video-controller');
-  
-  videoContainer.addEventListener('mouseenter', function() {
-    videoController.style.opacity = '1';
-  });
-  
-  videoContainer.addEventListener('mouseleave', function() {
-    videoController.style.opacity = '0';
-  });
 }
