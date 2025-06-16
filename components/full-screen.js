@@ -29,8 +29,8 @@ customElements.define(
                <div class="fullscreen-progress-thumb" id="fullscreen-progress-thumb"></div>
              </div>
              <div class="fullscreen-time-container">
-               <p>2:35</p>
-               <p>7:35</p>
+               <p id="fullscreen-start-time"></p>
+               <p id="fullscreen-end-time"></p>
              </div>
            </div>
            <div class="fullscreen-controls-container">

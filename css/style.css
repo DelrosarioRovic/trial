@@ -77,3 +77,27 @@ body {
   position: relative;
   height: 100vh;
 }
+
+
+:root {
+  /* Background Colors */
+  --background-color: #0a0a0a;       /* Main background */
+  --secondary-bg-color: #1e1e1e;     /* Cards, sections */
+  --slate-color: #121212;            /* Darker backgrounds */
+
+  /* Text Colors */
+  --text-color: #ffffff;             /* Primary text */
+  --primary-text-color: #ffffff;     /* Alternate reference */
+  --secondary-text-color: #ababab;   /* Subtle text */
+  --gray: #ababab;                   /* Alternate gray */
+  --gray-transparent: rgba(237, 237, 237, 0.7); /* Semi-transparent text */
+
+  /* Accent Colors */
+  --secondary-color: #7A100C;        /* Primary accent (buttons/status) */
+  --dark-red: #d62822;               /* Brighter red variant */
+  --netflix-red: #E50914;            /* Alternate red (optional) */
+
+  /* Special Colors */
+  --yellow-color: #FFEE00;           /* Profile borders, highlights */
+  --dark-color: #424242b4;           /* Overlays/modals */
+}

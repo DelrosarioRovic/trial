@@ -1,8 +1,3 @@
-:root {
-   --secondary-color: #7A100C;
-   --text-color: #ffffff;
-}
-
 .login-container {
   position: fixed;
   top: -100%;

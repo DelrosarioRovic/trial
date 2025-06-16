@@ -7,6 +7,8 @@ function initializeFullscreenVideoControls() {
   const progressThumb = document.getElementById('fullscreen-progress-thumb');
   const backButton = document.getElementById('fullscreen-video-back-btn');
   const progressContainer = document.querySelector('.fullscreen-progress-container');
+  const startTime = document.getElementById('fullscreen-start-time');
+  const endTime = document.getElementById('fullscreen-end-time');
 
   // Play/Pause functionality
   playPauseBtn.addEventListener('click', function() {
@@ -29,10 +31,14 @@ progressContainer.addEventListener('click', function(e) {
 // Also update the thumb position on timeupdate
 video.addEventListener('timeupdate', function() {
   const percent = (video.currentTime / video.duration) * 100;
+  console.log({currentTime: video.currentTime, duration: video.duration, percent});
+  startTime.textContent = new Date(video.currentTime * 1000).toISOString().substr(14, 5);
+  endTime.textContent = new Date(video.duration * 1000).toISOString().substr(14, 5);
+  
   progressBar.style.width = percent + '%';
   progressThumb.style.left = `calc(${percent}% - 6px)`; // Adjust for thumb width
 });
-  
+
   // Back button functionality
   backButton.addEventListener('click', function() {
     if (currentFloatingCleanup) {
