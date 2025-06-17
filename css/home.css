@@ -78,7 +78,7 @@
 .clip1 {
     width: 61%;
     border-radius: 10px 0 0 10px;
-    background-color: #1e1e1e;
+    background-color: var(--secondary-bg-color);
     clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
     z-index: 1;
 }
@@ -86,7 +86,7 @@
 .clip2 {
   width: 61%;
   border-radius: 0 10px 10px 0;
-  background-color: #1e1e1e;
+  background-color: var(--secondary-bg-color);
   clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
   z-index: 2;
   position: absolute;
@@ -126,6 +126,7 @@
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 10px;
+    /* background-color: var(--secondary-bg-color); */
 }
 
 .popular-img {
@@ -160,10 +161,13 @@
 .live-e-item {
     width: 50%;
     position: relative;
+    min-height: 190px;
+    /* background-color: var(--secondary-bg-color); */
 }
 
 .live-e-item--small {
     width: 40% !important;
+    min-height: 180px;
 }
 
 .live-image {
