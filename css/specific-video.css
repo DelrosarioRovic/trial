@@ -5,6 +5,8 @@
   background-color: var(--background-color);
   z-index: 10;
   color: var(--text-color);
+  overflow: auto;
+  padding-bottom: 70px;
 }
 
 .specific-video-box {
@@ -13,7 +15,7 @@
 
 .specific-video-frame {
     position: relative;
-    height: 380px;
+    height: 280px;
 }
 
 
@@ -24,6 +26,7 @@
     width: 100%;
     height: 100%;
     background: #000000;
+    object-fit: cover;
 }
 
 .specific-video-controller {
@@ -99,10 +102,9 @@
     padding:25px 15px ;
 }
 .specific-video-content-title {
-    font-size: 24px;
+    font-size: 16px;
 }
 .specific-video-content-name {
-    font-size: 16px;
     color: var(--secondary-text-color);
 }
 
@@ -112,7 +114,6 @@
     justify-content: space-between;
     align-items: center;
     color: var(--secondary-text-color);
-    font-size: 16px;
 }
 
 .specific-social-control-c {
@@ -129,10 +130,6 @@
     margin-top: 10px;
 }
 
-.specific-video-description {
-    font-size: 16px;
-}
-
 .specific-video-comments-container {
     display: flex;
     flex-direction: row;
@@ -141,6 +138,62 @@
 }
 
 .specific-video-comment {
-    font-size: 16px;
     color: var(--secondary-text-color);
+}
+
+/* Channel info section */
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.channel-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.channel-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.channel-details {
+  flex-grow: 1;
+}
+
+.channel-name {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.channel-subs {
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+}
+
+/* Tags section */
+.video-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.video-tag {
+  background-color: rgba(255,255,255,0.1);
+  color: var(--secondary-color);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }

@@ -1,4 +1,3 @@
-
 function initializeFullscreenVideoControls() {
   const video = document.getElementById('fullscreen-video-id');
   if (!video) return;
@@ -7,12 +6,36 @@ function initializeFullscreenVideoControls() {
   video.duration = parseFloat(videoState.duration) || 0;
 
   const playPauseBtn = document.querySelector('.fullscreen-play-pause-btn');
+  const playPauseBtnFrame = document.querySelector('.fullscreen-play-pause-btn-frame');
   const progressBar = document.getElementById('fullscreen-progress-bar');
   const progressThumb = document.getElementById('fullscreen-progress-thumb');
   const backButton = document.getElementById('fullscreen-video-back-btn');
   const progressContainer = document.querySelector('.fullscreen-progress-container');
   const startTime = document.getElementById('fullscreen-start-time');
   const endTime = document.getElementById('fullscreen-end-time');
+
+  // Variable to store the timeout ID
+  let playPauseTimeout;
+
+  // Function to hide play/pause button after delay
+  function hidePlayPauseButton() {
+    playPauseTimeout = setTimeout(() => {
+      playPauseBtnFrame.style.opacity = '0';
+      playPauseBtnFrame.style.transition = 'opacity 0.5s ease';
+    }, 3000);
+  }
+
+  // Function to show play/pause button
+  function showPlayPauseButton() {
+    clearTimeout(playPauseTimeout);
+    playPauseBtnFrame.style.opacity = '1';
+    playPauseBtnFrame.style.transition = 'opacity 0.2s ease';
+    hidePlayPauseButton(); // Start the hide timer again
+  }
+
+  // Initial setup
+  playPauseBtnFrame.style.opacity = '1';
+  hidePlayPauseButton();
 
   //check if paused
   if (videoState.isPaused) {
@@ -21,7 +44,8 @@ function initializeFullscreenVideoControls() {
   }
   
   // Play/Pause functionality
-  playPauseBtn.addEventListener('click', function() {
+  playPauseBtnFrame.addEventListener('click', function() {
+    console.log("hit")
     if (video.ended) {
       video.currentTime = 0;
       video.play();
@@ -35,31 +59,49 @@ function initializeFullscreenVideoControls() {
       videoState.isPaused = true;
       playPauseBtn.classList.replace('fa-pause', 'fa-play');
     }
+    showPlayPauseButton(); // Show button when clicked and restart timer
   });
 
-// Progress bar functionality - fixed version
-progressContainer.addEventListener('click', function(e) {
-  const rect = this.getBoundingClientRect();
-  const percent = (e.clientX - rect.left) / rect.width;
-  video.currentTime = percent * video.duration;
-});
+  // Show controls when video is hovered or touched
+  playPauseBtnFrame.addEventListener('mouseenter', showPlayPauseButton);
+  video.addEventListener('mouseenter', showPlayPauseButton);
 
-// Also update the thumb position on timeupdate
-video.addEventListener('timeupdate', function() {
-  const percent = (video.currentTime / video.duration) * 100;
-  startTime.textContent = new Date(video.currentTime * 1000).toISOString().substr(14, 5);
-  endTime.textContent = new Date(video.duration * 1000).toISOString().substr(14, 5);
-  
-  progressBar.style.width = percent + '%';
-  progressThumb.style.left = `calc(${percent}% - 6px)`; // Adjust for thumb width
-  videoState.currentTime = video.currentTime; // Update videoState
-  videoState.duration = video.duration; // Update videoState
-});
+  // Progress bar functionality - fixed version
+  progressContainer.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const percent = (e.clientX - rect.left) / rect.width;
+      video.currentTime = percent * video.duration;
+      showPlayPauseButton(); // Show controls when seeking
+      
+      if (video.ended) {
+          video.play();
+          playPauseBtn.classList.replace('fa-rotate-right', 'fa-pause');
+          videoState.isPaused = false;
+          videoState.isEnded = false;
+      } else if (video.paused) {
+          video.play();
+          playPauseBtn.classList.replace('fa-play', 'fa-pause');
+          videoState.isPaused = false;
+      }
+  });
 
-video.addEventListener('ended', function() {
-  playPauseBtn.classList.replace('fa-pause', 'fa-rotate-right'); // Show play icon when video ends
-  videoState.isEnded = true;
-});
+  // Also update the thumb position on timeupdate
+  video.addEventListener('timeupdate', function() {
+    const percent = (video.currentTime / video.duration) * 100;
+    startTime.textContent = new Date(video.currentTime * 1000).toISOString().substr(14, 5);
+    endTime.textContent = new Date(video.duration * 1000).toISOString().substr(14, 5);
+    
+    progressBar.style.width = percent + '%';
+    progressThumb.style.left = `calc(${percent}% - 6px)`; // Adjust for thumb width
+    videoState.currentTime = video.currentTime; // Update videoState
+    videoState.duration = video.duration; // Update videoState
+  });
+
+  video.addEventListener('ended', function() {
+    playPauseBtn.classList.replace('fa-pause', 'fa-rotate-right'); // Show play icon when video ends
+    videoState.isEnded = true;
+    showPlayPauseButton(); // Show controls when video ends
+  });
 
   // Back button functionality
   backButton.addEventListener('click', function() {
