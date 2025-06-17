@@ -138,7 +138,7 @@ function loadPage(page) {
         } catch (e) {
             console.warn('Video controls failed to initialize:', e);
         }
-    }, 400); // wait for component render
+    }, 500); // wait for component render
 }
 
 function loadHomePage(container) {

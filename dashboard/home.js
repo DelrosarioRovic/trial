@@ -122,7 +122,7 @@ customElements.define(
         </div>
       </section>
       `;
-         }, 300); 
+         }, 400); 
     }
   }
 );
