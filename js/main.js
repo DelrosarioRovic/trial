@@ -132,15 +132,13 @@ function loadPage(page) {
     }
     // ✅ Globally initialize after DOM is updated
     setTimeout(() => {
-        console.log("test 1", videoState, initialVideoState);
-        
         try {
             // This will only attach if the right DOM is there
             CreateSpecificVideoscreen();
         } catch (e) {
             console.warn('Video controls failed to initialize:', e);
         }
-    }, 100); // wait for component render
+    }, 400); // wait for component render
 }
 
 function loadHomePage(container) {

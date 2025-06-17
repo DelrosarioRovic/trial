@@ -33,7 +33,7 @@ customElements.define(
               <div class="specific-controls-row">
                 <div>
                   <i class="fa-solid fa-pause fa-2xl specific-play-pause-btn" style="color: #ffffff;"></i>
-                  <i class="fa-solid fa-forward-step fa-2xl specific-forward-btn" style="color: #ffffff;"></i>
+                  <i class="fa-solid fa-volume-high fa-xl" style="color: #ffffff;"></i>
                 </div>
                 <i class="fa-solid fa-expand fa-2xl fullscreen-btn" id="fullscreen-btn" style="color: #ffffff;"></i>
               </div>

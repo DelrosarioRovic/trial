@@ -11,7 +11,6 @@ function initializeSpecificVideoControls() {
   }
   
   const playPauseBtn = document.querySelector('.specific-play-pause-btn');
-  const forwardBtn = document.querySelector('.specific-forward-btn');
   const progressBar = document.getElementById('specific-progress-bar');
   const progressThumb = document.getElementById('specific-progress-thumb');
   const backButton = document.getElementById('specific-video-back-btn');
@@ -38,13 +37,7 @@ function initializeSpecificVideoControls() {
       playPauseBtn.classList.replace('fa-pause', 'fa-play');
     }
   });
-  
-  // Forward 10 seconds
-  forwardBtn.addEventListener('click', function() {
-    video.currentTime += 10;
-  });
-  
-  
+
   // Fullscreen functionality
   CreateFullScreenVideo();
   
