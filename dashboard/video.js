@@ -12,7 +12,7 @@ customElements.define(
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 255, 255, 0.5); /* semi-transparent */
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,8 +20,8 @@ customElements.define(
           }
 
           .loader {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--secondary-color, #333);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid white;
             border-radius: 50%;
             width: 40px;
             height: 40px;
