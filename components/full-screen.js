@@ -14,6 +14,10 @@ customElements.define(
         <div class="fullscreen-video-container">
          <div class="fullscreen-video-header-container">
            <i class="fas fa-arrow-left fa-2xl fullscreen-video-back-btn" id="fullscreen-video-back-btn" style="color: #ffffff"></i>
+           <i class="fa-solid fa-volume-high fa-xl"></i>
+         </div>
+         <div class="fullscreen-play-pause-btn-frame">
+          <i class="fa-solid fa-pause fa-2xl video-icon fullscreen-play-pause-btn"></i>
          </div>
          <div class="fullscreen-video-content">
            <video autoplay id="fullscreen-video-id">
@@ -32,14 +36,6 @@ customElements.define(
                <p id="fullscreen-start-time"></p>
                <p id="fullscreen-end-time"></p>
              </div>
-           </div>
-           <div class="fullscreen-controls-container">
-             <span></span>
-             <i class="fa-solid fa-pause fa-2xl video-icon fullscreen-play-pause-btn"></i>
-             <i class="fa-solid fa-volume-high fa-xl"></i>
-           </div>
-           <div class="fullscreen-description-container">
-             <p class="fullscreen-description-text">Improved your striking skills with these effective combinations.</p>
            </div>
          </div>
         </div>

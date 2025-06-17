@@ -12,7 +12,6 @@ function initializeSpecificVideoControls() {
   
   const playPauseBtn = document.querySelector('.specific-play-pause-btn');
   const forwardBtn = document.querySelector('.specific-forward-btn');
-  const skipForwardBtn = document.querySelector('.specific-skip-forward-btn');
   const progressBar = document.getElementById('specific-progress-bar');
   const progressThumb = document.getElementById('specific-progress-thumb');
   const backButton = document.getElementById('specific-video-back-btn');
@@ -45,10 +44,6 @@ function initializeSpecificVideoControls() {
     video.currentTime += 10;
   });
   
-  // Skip forward 30 seconds
-  skipForwardBtn.addEventListener('click', function() {
-    video.currentTime += 30;
-  });
   
   // Fullscreen functionality
   CreateFullScreenVideo();
