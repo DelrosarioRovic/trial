@@ -16,8 +16,8 @@ customElements.define(
            <i class="fas fa-arrow-left fa-2xl fullscreen-video-back-btn" id="fullscreen-video-back-btn" style="color: #ffffff"></i>
          </div>
          <div class="fullscreen-video-content">
-           <video id="fullscreen-video-id">
-             <source src="https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231" type="video/mp4">
+           <video autoplay id="fullscreen-video-id">
+             <source src="${videoState.url}" type="video/mp4">
              Your browser does not support the video tag.
            </video>
          </div>
@@ -35,7 +35,7 @@ customElements.define(
            </div>
            <div class="fullscreen-controls-container">
              <span></span>
-             <i class="fa-solid fa-play fa-2xl video-icon fullscreen-play-pause-btn"></i>
+             <i class="fa-solid fa-pause fa-2xl video-icon fullscreen-play-pause-btn"></i>
              <i class="fa-solid fa-volume-high fa-xl"></i>
            </div>
            <div class="fullscreen-description-container">

@@ -1,6 +1,15 @@
 // Keep track of the current cleanup function
 let currentPageCleanup = null;
-let currentFloatingCleanup = null
+let currentFloatingCleanup = null;
+const initialVideoState = {
+  currentTime: 0,
+  duration: 0,
+  isPaused: false,
+  isEnded: false,
+  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231'
+}
+
+let videoState = initialVideoState;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page
@@ -123,7 +132,7 @@ function loadPage(page) {
     }
     // ✅ Globally initialize after DOM is updated
     setTimeout(() => {
-        console.log("test 1", currentFloatingCleanup);
+        console.log("test 1", videoState, initialVideoState);
         
         try {
             // This will only attach if the right DOM is there

@@ -39,6 +39,7 @@ function CreateFullScreenVideo() {
             currentFloatingCleanup.remove();
             currentFloatingCleanup = null;
         }
+
         // Create a new fullscreen video element
         const floatContent = document.getElementById('floating-content');
         currentFloatingCleanup = document.createElement('fullscreen-video');

@@ -18,9 +18,9 @@ customElements.define(
            </div>
            <div class="specific-video-box">
             <div class="specific-video-frame">
-              <video width="100%" id="specific-video-id">
-                <source src="https://ik.imagekit.io/ldhtvbchc/video/sample.mp4?updatedAt=1750062019904" type="video/mp4">
-                <source src="https://ik.imagekit.io/ldhtvbchc/video/sample.mp4?updatedAt=1750062019904" type="video/ogg">
+              <video autoplay width="100%" id="specific-video-id">
+                <source src="${videoState.url}" type="video/mp4">
+                <source src="${videoState.url}" type="video/ogg">
                 Your browser does not support HTML5 video.
               </video>
             </div>
@@ -32,7 +32,7 @@ customElements.define(
               </div>
               <div class="specific-controls-row">
                 <div>
-                  <i class="fa-solid fa-play fa-2xl specific-play-pause-btn" style="color: #ffffff;"></i>
+                  <i class="fa-solid fa-pause fa-2xl specific-play-pause-btn" style="color: #ffffff;"></i>
                   <i class="fa-solid fa-forward-step fa-2xl specific-forward-btn" style="color: #ffffff;"></i>
                 </div>
                 <i class="fa-solid fa-angle-right fa-2xl specific-skip-forward-btn" style="color: #ffffff;"></i>
