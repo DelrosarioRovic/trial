@@ -42,7 +42,7 @@
   /* Hide browser UI elements */
   body.pwa-mode {
     overflow: hidden;
-    height: 100vh;
+    height: 100svh;
   }
 }
 
@@ -71,16 +71,12 @@ body {
   font-size: 12px;
   height: 100svh;
   max-width: 500px;
-  margin: auto;
+  margin: auto 0;
 }
 
 .main-container {
   position: relative;
-  height: 100svh;
-}
-
-#floating-content {
-  position: relative;
+  height: 100%;
 }
 
 :root {
