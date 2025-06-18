@@ -1,4 +1,3 @@
-
 function initializeSpecificVideoControls() {
   const video = document.getElementById('specific-video-id');
   if (!video && !videoState.url) return;

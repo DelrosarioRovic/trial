@@ -16,7 +16,6 @@ function initializeFullscreenVideoControls() {
   const endTime = document.getElementById('fullscreen-end-time');
   const volumeBtn = document.getElementById('fullscreen-volume-btn');
 
-
   // Variable to store the timeout ID
   let playPauseTimeout;
 

@@ -75,8 +75,8 @@ function initializeTrainerCarousel() {
     });
     
     // Remove touch handlers
-    carousel?.removeEventListener('touchstart', handleTouchStart);
-    carousel?.removeEventListener('touchend', handleTouchEnd);
+    carousel?.removeEventListener('touchstart', handleTouchStart, { passive: true});
+    carousel?.removeEventListener('touchend', handleTouchEnd, { passive: true});
     
     console.log('Carousel cleaned up');
   };
