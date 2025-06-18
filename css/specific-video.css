@@ -54,7 +54,7 @@
     
     .specific-progress-bar {
         height: 100%;
-        background: var(--secondary-color);
+        background: var(--dark-red);
         border-radius: 3px;
         width: 0%;
     }
@@ -189,10 +189,8 @@
 }
 
 .video-tag {
-  background-color: rgba(255,255,255,0.1);
-  color: var(--secondary-color);
+  color: var(--dark-red);
   padding: 5px 12px;
-  border-radius: 15px;
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;

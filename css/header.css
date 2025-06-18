@@ -30,9 +30,8 @@
   }
 
   .header-subscribe {
-    color: var(--secondary-color);
+    color: var(--dark-red);
   }
-
 
   /* fullscreen video css */
   .fullscreen-video-header-container {
