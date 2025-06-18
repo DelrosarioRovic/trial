@@ -27,6 +27,7 @@ function CreateSpecificVideoscreen() {
 function CreateFullScreenVideo() {
     // Get all elements with class 'specific-video'
     const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const getApp = document.getElementById('app');
     
     if (!fullscreenBtn) {
         return
@@ -39,6 +40,8 @@ function CreateFullScreenVideo() {
             currentFloatingCleanup.remove();
             currentFloatingCleanup = null;
         }
+
+        getApp.style.display = "none";
         // Create a new fullscreen video element
         const floatContent = document.getElementById('floating-content');
         currentFloatingCleanup = document.createElement('fullscreen-video');
