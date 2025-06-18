@@ -75,9 +75,15 @@ body {
 
 .main-container {
   position: relative;
-  height: 100vh;
+  height: 100svh;
 }
 
+.floating-content {
+  height: 100svh;
+  width: 100%;
+  border: 2px solid yellow;
+  position: fixed;
+}
 
 :root {
   /* Background Colors */
