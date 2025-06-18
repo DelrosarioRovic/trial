@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: auto;
   left: 50%; /* Center the navbar */
   transform: translateX(-50%); /* Center the navbar */
   width: 100%; /* This makes it full width - change this */
