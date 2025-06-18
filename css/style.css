@@ -77,12 +77,6 @@ body {
   width: 100%;
 }
 
-#floating-content {
-  height: 100%;
-  width: 100%;
-  border: 1px solid red;
-}
-
 /* iOS specific tweaks */
 @supports (-webkit-touch-callout: none) {
   body {
