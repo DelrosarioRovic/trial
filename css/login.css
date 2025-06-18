@@ -11,6 +11,7 @@
   z-index: 30;
   will-change: top;
   backface-visibility: hidden;
+  height: 100%;
 }
 
 .login-container.visible {
