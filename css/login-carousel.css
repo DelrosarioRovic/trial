@@ -7,7 +7,7 @@
 }
 
 .carousel {
-  height: 100vh;
+  height: 100svh;
   position: relative;
   width: 100%;
   overflow: hidden;
