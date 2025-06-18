@@ -2,19 +2,18 @@
 .fullscreen-video-container {
   position: absolute;
   bottom: 0;
-  height: 100vh;
+  height: 100%;
   background-color: var(--background-color);
   z-index: 51;
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow: auto;
   left: 50%; /* Center the navbar */
   transform: translateX(-50%); /* Center the navbar */
   width: 100%; /* This makes it full width - change this */
   max-width: 500px; /* Add this to limit maximum width */
-  border: 2px solid red;
 }
 
 .fullscreen-play-pause-btn {
