@@ -150,7 +150,9 @@ function loadPage(page) {
 }
 
 function loadHomePage(container) {
+    const header = document.createElement('header-initial');
     const homePage = document.createElement('home-page');
+    container.appendChild(header);
     container.appendChild(homePage);
 
     // Create and append stylesheet
@@ -162,8 +164,10 @@ function loadHomePage(container) {
 }
 
 function loadTrainerPage(container) {
-  const trainerPage = document.createElement('trainer-page');
-  container.appendChild(trainerPage);
+    const header = document.createElement('header-initial');
+    const trainerPage = document.createElement('trainer-page');
+    container.appendChild(header);
+    container.appendChild(trainerPage);
 
   // Create and append stylesheet
   const style = document.createElement('link');
@@ -187,8 +191,9 @@ function loadTrainerPage(container) {
 
 function loadVideoPage(container) {
     const videoPage = document.createElement('video-page');
+    const header = document.createElement('header-initial');
+    container.appendChild(header);
     container.appendChild(videoPage);
-
     // Create and append stylesheet
     const style = document.createElement('link');
     style.rel = 'stylesheet';
@@ -198,7 +203,9 @@ function loadVideoPage(container) {
 }
 
 function loadProfilePage(container) {
+    const header = document.createElement('header-initial');
     const profilePage = document.createElement('profile-page');
+    container.appendChild(header);
     container.appendChild(profilePage);
 
     // Create and append stylesheet
