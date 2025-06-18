@@ -14,7 +14,7 @@ customElements.define(
         <div class="fullscreen-video-container">
          <div class="fullscreen-video-header-container">
            <i class="fas fa-arrow-left fa-2xl fullscreen-video-back-btn" id="fullscreen-video-back-btn" style="color: #ffffff"></i>
-           <i class="fa-solid fa-volume-high fa-xl"></i>
+           <i class="fa-solid fa-volume-high fa-xl" id="fullscreen-volume-btn"></i>
          </div>
          <div class="fullscreen-play-pause-btn-frame">
           <i class="fa-solid fa-pause fa-2xl video-icon fullscreen-play-pause-btn"></i>

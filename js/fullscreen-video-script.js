@@ -13,6 +13,7 @@ function initializeFullscreenVideoControls() {
   const progressContainer = document.querySelector('.fullscreen-progress-container');
   const startTime = document.getElementById('fullscreen-start-time');
   const endTime = document.getElementById('fullscreen-end-time');
+  const volumeBtn = document.getElementById('fullscreen-volume-btn');
 
   // Variable to store the timeout ID
   let playPauseTimeout;
@@ -42,7 +43,25 @@ function initializeFullscreenVideoControls() {
     video.pause();
     playPauseBtn.classList.replace('fa-pause', 'fa-play');
   }
-  
+
+  if (videoState.isMuted) {
+    video.muted = true;
+    volumeBtn.classList.replace('fa-pause', 'fa-play');
+  }
+
+  //mute unmute 
+  volumeBtn.addEventListener('click', function() {
+    if (video.muted) {
+      video.muted = false;
+      videoState.isMuted = false;
+      volumeBtn.classList.replace('fa-volume-xmark', 'fa-volume-high');
+    } else {
+      video.muted = true;
+      videoState.isMuted = true;
+      volumeBtn.classList.replace('fa-volume-high', 'fa-volume-xmark');
+    }
+  });
+
   // Play/Pause functionality
   playPauseBtnFrame.addEventListener('click', function() {
     console.log("hit")

@@ -6,10 +6,18 @@ const initialVideoState = {
   duration: 0,
   isPaused: false,
   isEnded: false,
+  isMuted: false,
   url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231'
 }
 
-let videoState = initialVideoState;
+let videoState = {
+  currentTime: 0,
+  duration: 0,
+  isPaused: false,
+  isEnded: false,
+  isMuted: false,
+  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231'
+};
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app with the current page

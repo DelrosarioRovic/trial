@@ -14,12 +14,26 @@ function initializeSpecificVideoControls() {
   const progressBar = document.getElementById('specific-progress-bar');
   const progressThumb = document.getElementById('specific-progress-thumb');
   const backButton = document.getElementById('specific-video-back-btn');
+  const volumeBtn = document.getElementById('specific-volume-btn');
 
   //check if paused
   if (videoState.isPaused) {
     video.pause();
     playPauseBtn.classList.replace('fa-pause', 'fa-play');
   }
+
+  //mute unmute 
+  volumeBtn.addEventListener('click', function() {
+    if (video.muted) {
+      video.muted = false;
+      videoState.isMuted = false;
+      volumeBtn.classList.replace('fa-volume-xmark', 'fa-volume-high');
+    } else {
+      video.muted = true;
+      videoState.isMuted = true;
+      volumeBtn.classList.replace('fa-volume-high', 'fa-volume-xmark');
+    }
+  });
 
   // Play/Pause functionality
   playPauseBtn.addEventListener('click', function() {
