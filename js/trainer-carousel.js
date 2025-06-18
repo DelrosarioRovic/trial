@@ -59,8 +59,8 @@ function initializeTrainerCarousel() {
   });
 
   // Add touch events
-  carousel?.addEventListener('touchstart', handleTouchStart, { passive: false });
-  carousel?.addEventListener('touchend', handleTouchEnd, { passive: false });
+  carousel?.addEventListener('touchstart', handleTouchStart, { passive: true });
+  carousel?.addEventListener('touchend', handleTouchEnd, { passive: true });
 
   // Auto-advance every 5 seconds
   intervalId = setInterval(() => showSlide(currentSlide + 1), 5000);
