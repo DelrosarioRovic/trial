@@ -54,6 +54,7 @@ body {
   height: 100%;
   /* Fallback for browsers that don't support dvh or svh */
   min-height: 100vh;
+  border: 2px solid red;
 }
 
 /* Modern height units with fallbacks */
@@ -99,20 +100,12 @@ body {
     /* Ensure content stays within safe area */
     height: calc(100% - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
   }
-  
-  /* .main-container {
-    padding-top: env(safe-area-inset-top, 0px);
-  } */
 }
 
 /* Extra iOS PWA specific adjustments */
 @supports (-webkit-touch-callout: none) {
   @media (display-mode: standalone) {
-    body {
-      /* Additional padding for status bar */
-      /* padding-top: max(env(safe-area-inset-top), 20px); */
-    }
-    
+
     /* Fix for bottom bar */
     .main-container {
       padding-bottom: env(safe-area-inset-bottom, 0px);
