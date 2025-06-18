@@ -72,6 +72,7 @@ body {
   height: 100svh;
   max-width: 500px;
   margin: auto 0;
+  padding: 0;
 }
 
 .main-container {

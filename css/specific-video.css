@@ -1,7 +1,7 @@
 /* specific video container screen */
 .specific-video-container {
   height: 100%;
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-color: var(--background-color);
   z-index: 10;

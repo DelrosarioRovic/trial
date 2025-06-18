@@ -1,6 +1,6 @@
 /* fullscreen video container screen */
 .fullscreen-video-container {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 100%;
   background-color: var(--background-color);
