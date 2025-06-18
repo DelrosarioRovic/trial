@@ -63,10 +63,12 @@ function initializeFullscreenVideoControls() {
     }
   });
 
+  video.addEventListener('play', function() {
+    video.webkitEnterFullscreen = function() { return false; };
+  });
+
   // Play/Pause functionality
   playPauseBtnFrame.addEventListener('click', function() {
-    console.log("hit")
-    video.webkitEnterFullscreen = function() { return false };
     if (video.ended) {
       video.currentTime = 0;
       video.play();
