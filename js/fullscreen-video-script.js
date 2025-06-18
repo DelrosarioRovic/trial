@@ -87,6 +87,7 @@ function initializeFullscreenVideoControls() {
 
   // Progress bar functionality - fixed version
   progressContainer.addEventListener('click', function(e) {
+      e.preventDefault();
       const rect = this.getBoundingClientRect();
       const percent = (e.clientX - rect.left) / rect.width;
       video.currentTime = percent * video.duration;
@@ -103,6 +104,64 @@ function initializeFullscreenVideoControls() {
           videoState.isPaused = false;
       }
   });
+
+    // ====== ENHANCED MOBILE DRAG FUNCTIONALITY ======
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+ if (isTouchDevice) {
+    let isDragging = false;
+    let wasPlaying = false;
+    let touchStartX = 0;
+    let startTime = 0;
+    let animationFrameId = null;
+
+    progressContainer.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      wasPlaying = !video.paused;
+      
+      isDragging = true;
+      touchStartX = e.touches[0].clientX;
+      startTime = video.currentTime;
+
+      updateDragPosition(e.touches[0].clientX);
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => {
+        updateDragPosition(e.touches[0].clientX);
+      });
+    });
+
+    document.addEventListener('touchend', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      cancelAnimationFrame(animationFrameId);
+ 
+      // Resume playback if needed
+      if (wasPlaying && !video.paused) {
+        video.play();
+      }
+    });
+
+    function updateDragPosition(clientX) {
+      const rect = progressContainer.getBoundingClientRect();
+      let percent = (clientX - rect.left) / rect.width;
+      percent = Math.max(0, Math.min(1, percent));
+      
+      const newTime = percent * video.duration;
+      video.currentTime = newTime;
+      
+      // Update UI
+      progressBar.style.width = `${percent * 100}%`;
+      progressThumb.style.left = `calc(${percent * 100}% - 6px)`;
+
+      // Update state
+      videoState.currentTime = newTime;
+    }
+  }
 
   // Also update the thumb position on timeupdate
   video.addEventListener('timeupdate', function() {
