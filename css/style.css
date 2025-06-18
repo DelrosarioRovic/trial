@@ -110,7 +110,7 @@ body {
   @media (display-mode: standalone) {
     body {
       /* Additional padding for status bar */
-      padding-top: max(env(safe-area-inset-top), 20px);
+      /* padding-top: max(env(safe-area-inset-top), 20px); */
     }
     
     /* Fix for bottom bar */
