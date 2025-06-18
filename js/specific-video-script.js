@@ -15,6 +15,7 @@ function initializeSpecificVideoControls() {
   const progressThumb = document.getElementById('specific-progress-thumb');
   const backButton = document.getElementById('specific-video-back-btn');
   const volumeBtn = document.getElementById('specific-volume-btn');
+  const progressContainer = document.querySelector('.specific-progress-container');
 
   //check if paused
   if (videoState.isPaused) {
@@ -55,13 +56,92 @@ function initializeSpecificVideoControls() {
   // Fullscreen functionality
   CreateFullScreenVideo();
   
-  // Progress bar functionality - fixed version
-const progressContainer = document.querySelector('.specific-progress-container');
+
 progressContainer.addEventListener('click', function(e) {
   const rect = this.getBoundingClientRect();
   const percent = (e.clientX - rect.left) / rect.width;
   video.currentTime = percent * video.duration;
 });
+
+  // ====== ENHANCED MOBILE DRAG FUNCTIONALITY ======
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+ if (isTouchDevice) {
+    let isDragging = false;
+    let wasPlaying = false;
+    let touchStartX = 0;
+    let startTime = 0;
+    let animationFrameId = null;
+
+    // Create preview thumbnail (YouTube-style)
+    const previewThumbnail = document.createElement('div');
+    previewThumbnail.className = 'video-preview-thumbnail';
+    progressContainer.appendChild(previewThumbnail);
+
+    progressContainer.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      wasPlaying = !video.paused;
+      
+      isDragging = true;
+      touchStartX = e.touches[0].clientX;
+      startTime = video.currentTime;
+      
+      // Show preview immediately
+      previewThumbnail.style.opacity = '1';
+      updateDragPosition(e.touches[0].clientX);
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => {
+        updateDragPosition(e.touches[0].clientX);
+      });
+    });
+
+    document.addEventListener('touchend', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      cancelAnimationFrame(animationFrameId);
+      
+      // Hide preview
+      previewThumbnail.style.opacity = '0';
+      
+      // Resume playback if needed
+      if (wasPlaying && !video.paused) {
+        video.play();
+      }
+    });
+
+    function updateDragPosition(clientX) {
+      const rect = progressContainer.getBoundingClientRect();
+      let percent = (clientX - rect.left) / rect.width;
+      percent = Math.max(0, Math.min(1, percent));
+      
+      const newTime = percent * video.duration;
+      video.currentTime = newTime;
+      
+      // Update UI
+      progressBar.style.width = `${percent * 100}%`;
+      progressThumb.style.left = `calc(${percent * 100}% - 6px)`;
+      
+      // Update preview
+      previewThumbnail.style.left = `${percent * 100}%`;
+      previewThumbnail.textContent = formatTime(newTime);
+      
+      // Update state
+      videoState.currentTime = newTime;
+    }
+  }
+
+
+  // Helper function to format time
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
 
 // Also update the thumb position on timeupdate
 video.addEventListener('timeupdate', function() {
