@@ -42,7 +42,7 @@
   /* Hide browser UI elements */
   body.pwa-mode {
     overflow: hidden;
-    height: 100svh;
+    height: 100vh;
   }
 }
 
