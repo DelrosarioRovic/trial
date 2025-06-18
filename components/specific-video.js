@@ -18,7 +18,7 @@ customElements.define(
            </div>
            <div class="specific-video-box">
             <div class="specific-video-frame">
-              <video autoplay width="100%" id="specific-video-id">
+              <video playsinline autoplay width="100%" id="specific-video-id">
                 <source src="${videoState.url}" type="video/mp4">
                 <source src="${videoState.url}" type="video/ogg">
                 Your browser does not support HTML5 video.

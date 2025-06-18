@@ -20,7 +20,7 @@ customElements.define(
           <i class="fa-solid fa-pause fa-2xl video-icon fullscreen-play-pause-btn"></i>
          </div>
          <div class="fullscreen-video-content">
-           <video autoplay id="fullscreen-video-id">
+           <video playsinline autoplay id="fullscreen-video-id">
              <source src="${videoState.url}" type="video/mp4">
              Your browser does not support the video tag.
            </video>

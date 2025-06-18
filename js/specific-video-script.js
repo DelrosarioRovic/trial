@@ -53,12 +53,6 @@ function initializeSpecificVideoControls() {
     }
   });
 
-      video.addEventListener('play', function() {
-      console.log("test");
-      
-      video.webkitEnterFullscreen = function() { return false; };
-    });
-
   // Fullscreen functionality
   CreateFullScreenVideo();
   
