@@ -71,6 +71,7 @@ body {
   font-size: 12px;
   height: 100svh;
   max-width: 500px;
+  margin: auto;
 }
 
 .main-container {
@@ -78,6 +79,9 @@ body {
   height: 100svh;
 }
 
+#floating-content {
+  position: relative;
+}
 
 :root {
   /* Background Colors */

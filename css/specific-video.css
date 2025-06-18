@@ -7,6 +7,10 @@
   color: var(--text-color);
   overflow: auto;
   padding-bottom: 70px;
+  left: 50%; /* Center the navbar */
+  transform: translateX(-50%); /* Center the navbar */
+  width: 100%; /* This makes it full width - change this */
+  max-width: 500px; /* Add this to limit maximum width */
 }
 
 .specific-video-box {

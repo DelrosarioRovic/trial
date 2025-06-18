@@ -15,29 +15,36 @@
   display: flex;
   color: white;
   background-color: #0a0a0a;
+  position: fixed;
+  bottom: 0;
+  left: 50%; /* Center the navbar */
+  transform: translateX(-50%); /* Center the navbar */
+  width: 100%; /* This makes it full width - change this */
+  max-width: 500px; /* Add this to limit maximum width */
+  justify-content: space-around;
+  padding: 4px 0px 20px 0px;
+  border-top: 2px solid #1e1e1e;
+  z-index: 45;
+  align-items: center;
 }
 
 .home-title {
   color: var(--text-color);
   font-size: 18px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-
-/* Desktop Navigation (Default) */
-.navbar {
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
 
 .nav-links {
-  display: flex;
+  display: flex;;
+  width: 100%;
+  justify-content: space-between;
   padding: 0 10px;
+  align-items: flex-end;
+  font-size: 10px;
 }
-
 
 .nav-links a {
   color: var(--gray);
@@ -48,7 +55,8 @@
 }
 
 .mobile-icon {
-  display: none; /* Hidden on desktop */
+    display: block; /* Show icons */
+    width: 16px;
 }
 
 .icon-profile {
@@ -104,45 +112,9 @@
   color: var(--primary-text-color) !important;
 }
 
-/* Mobile Navigation (Under 768px) */
-@media (max-width: 768px) {
-  /* MEDIA QUERY */
-  .home-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .navbar {
-    position: fixed;
-    bottom: 0;
-    top: auto; /* Override sticky positioning */
-    width: 100%;
-    justify-content: space-around;
-    padding: 4px 0px 20px 0px;
-    border-top: 2px solid #1e1e1e;
-    z-index: 50;
-  }
-
-  .nav-logo {
-    display: none; /* Hide logo on mobile */
-  }
-
-  .nav-links {
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 10px;
-    align-items: flex-end;
-    font-size: 10px;
-  }
-
-  .mobile-icon {
-    display: block; /* Show icons */
-    width: 16px;
-  }
-  .icon-container {
-    display: flex;
-    flex-direction: column;
-    padding: 5px 20px
-  }
+/* MEDIA QUERY */
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 20px
 }

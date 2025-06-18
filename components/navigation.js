@@ -14,7 +14,6 @@ customElements.define(
         <header class="header" id="header">
           <!-- Top Nav -->
             <nav class="navbar" id="navbar">
-            <a class="nav-logo">Logo</a>
             <div class="nav-links" id="navLinks">
                 <a class="icon-container nav-link" data-page="home">
                 <img class="mobile-icon nav-icon" src="./assets/icons/home.png" alt="home" data-default-src="./assets/icons/home.png" data-active-src="./assets/icons/active-home.png" >

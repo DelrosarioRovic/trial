@@ -1,5 +1,5 @@
 /* Mobile Navigation (Under 768px) */
-@media (max-width: 768px) {
+
   /* MEDIA QUERY */
   /* initial header css */
   .initial-header-container {
@@ -44,4 +44,3 @@
     justify-content: space-between;
     width: 100%;;
   }
-}
