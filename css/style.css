@@ -51,7 +51,7 @@ body {
   max-width: 500px;
   margin: 0 auto;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   /* Fallback for browsers that don't support dvh or svh */
   min-height: 100vh;
 }
