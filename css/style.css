@@ -78,7 +78,7 @@ body {
   height: 100svh;
 }
 
-.floating-content {
+#floating-content {
   height: 100svh;
   width: 100%;
   border: 2px solid yellow;
