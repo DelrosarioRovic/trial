@@ -152,7 +152,7 @@ function loadPage(page) {
 function loadHomePage(container) {
     const header = document.createElement('header-initial');
     const homePage = document.createElement('home-page');
-    container.appendChild(header);
+    // container.appendChild(header);
     container.appendChild(homePage);
 
     // Create and append stylesheet
