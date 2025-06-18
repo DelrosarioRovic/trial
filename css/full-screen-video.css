@@ -4,14 +4,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100svh;
   background-color: var(--background-color);
   z-index: 51;
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100svh;
 }
 
 .fullscreen-play-pause-btn {
