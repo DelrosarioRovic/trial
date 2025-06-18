@@ -108,6 +108,7 @@ function navigateTo(page) {
 
 function loadPage(page) {
     const app = document.getElementById('app');
+    app.style.display = "block";
     // Clear previous content and run cleanup
     if (currentPageCleanup) {
         console.log('Running cleanup for previous page');
