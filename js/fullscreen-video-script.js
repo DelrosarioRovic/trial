@@ -1,6 +1,7 @@
 function initializeFullscreenVideoControls() {
   const video = document.getElementById('fullscreen-video-id');
   if (!video) return;
+  video.removeAttribute('controls'); // Remove default controls
 
   video.currentTime = parseFloat(videoState.currentTime) || 0;
   video.duration = parseFloat(videoState.duration) || 0;
@@ -65,6 +66,7 @@ function initializeFullscreenVideoControls() {
   // Play/Pause functionality
   playPauseBtnFrame.addEventListener('click', function() {
     console.log("hit")
+    video.webkitEnterFullscreen = function() { return false };
     if (video.ended) {
       video.currentTime = 0;
       video.play();
