@@ -1,7 +1,7 @@
 /* specific video container screen */
 .specific-video-container {
   height: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: var(--background-color);
   z-index: 10;
@@ -12,6 +12,7 @@
   transform: translateX(-50%); /* Center the navbar */
   width: 100%; /* This makes it full width - change this */
   max-width: 500px; /* Add this to limit maximum width */
+  padding-top: env(safe-area-inset-top);
 }
 
 .specific-video-box {
