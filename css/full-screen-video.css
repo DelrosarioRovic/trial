@@ -2,7 +2,7 @@
 .fullscreen-video-container {
   position: absolute;
   inset: 0;
-  height: 100vh;
+  height: 100svh;
   background-color: var(--background-color);
   z-index: 51;
   color: var(--text-color);
