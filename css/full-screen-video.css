@@ -1,19 +1,28 @@
 /* fullscreen video container screen */
 .fullscreen-video-container {
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  height: 100%;
   background-color: var(--background-color);
   z-index: 51;
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  left: 50%; /* Center the navbar */
-  transform: translateX(-50%); /* Center the navbar */
-  width: 100%; /* This makes it full width - change this */
-  max-width: 500px; /* Add this to limit maximum width */
+  width: 100vw; /* Use viewport width */
+  height: 100vh; /* Use viewport height */
   overflow: hidden;
+  /* Remove the centering transforms and max-width */
+}
+
+/* Add this to prevent iOS rubber-banding */
+body.fullscreen-video-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .fullscreen-play-pause-btn {
@@ -48,10 +57,9 @@
 }
 
 /* bottom container content, controls and description text and etc */
-
 .fullscreen-bottom-container {
   width: 100%;
-  height: 400px;
+  height: auto; /* Changed from fixed height */
   position: absolute;
   bottom: 0;
   z-index: 2;
@@ -60,7 +68,11 @@
   flex-direction: column;
   gap: 10px;
   justify-content: flex-end;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* Optional: better visibility */
+  box-sizing: border-box;
 }
+
+/* Rest of your styles remain the same */
 
 .fullscreen-video-title {
   font-size: 16px;
