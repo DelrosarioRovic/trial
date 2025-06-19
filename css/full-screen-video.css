@@ -1,6 +1,6 @@
 /* fullscreen video container screen */
 .fullscreen-video-container {
-  position: absolute;
+  position: fixed;
   inset: 0;
   height: 100%;
   background-color: var(--background-color);
@@ -13,6 +13,9 @@
   transform: translateX(-50%); /* Center the navbar */
   width: 100%; /* This makes it full width - change this */
   max-width: 500px; /* Add this to limit maximum width */
+
+  /* Add safe area padding */
+  padding-top: env(safe-area-inset-top);
 }
 
 .fullscreen-play-pause-btn {
