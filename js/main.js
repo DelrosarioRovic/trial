@@ -20,6 +20,7 @@ let videoState = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    const app = document.getElementById('app');
     // Initialize the app with the current page
     const initialPage = getCurrentPageFromQuery();
     loadPage(initialPage);
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            app.style.display = "block";
             const page = this.getAttribute('data-page');
             navigateTo(page);
         });
@@ -107,8 +109,6 @@ function navigateTo(page) {
 }
 
 function loadPage(page) {
-    const app = document.getElementById('app');
-    app.style.display = "block";
     // Clear previous content and run cleanup
     if (currentPageCleanup) {
         console.log('Running cleanup for previous page');

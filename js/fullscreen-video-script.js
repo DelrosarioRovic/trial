@@ -189,8 +189,8 @@ function initializeFullscreenVideoControls() {
         currentFloatingCleanup = null;
     }
 
-    const getApp = document.getElementById('app');
-    getApp.style.display = "block";
+    // const getApp = document.getElementById('app');
+    // getApp.style.display = "block";
 
     // Create a new specific video element
     const floatContent = document.getElementById('floating-content');

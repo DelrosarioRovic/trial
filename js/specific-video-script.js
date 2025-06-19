@@ -1,9 +1,6 @@
 function initializeSpecificVideoControls() {
   const video = document.getElementById('specific-video-id');
   if (!video && !videoState.url) return;
-
-  const appId = document.getElementById("app");
-  appId.style.display = "none";
   
   if (videoState.currentTime > 0) {
     console.log("testing videoState.currentTime", videoState.currentTime);
@@ -166,8 +163,7 @@ video.addEventListener('timeupdate', function() {
       video.currentTime = 0; // Reset video time
     }
 
-    const appId = document.getElementById('app');
-    appId.style.display = "block";
+    app.style.display = "block";
 
     videoState = initialVideoState;
     
