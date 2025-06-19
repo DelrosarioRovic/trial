@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100vw; /* Use viewport width */
-  height: 100vh; /* Use viewport height */
+  height: 100svh; /* Use viewport height */
   overflow: hidden;
   /* Remove the centering transforms and max-width */
 }
