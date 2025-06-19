@@ -31,6 +31,10 @@
   font-display: swap;
 }
 
+body, html {
+  overscroll-behavior: contain;
+}
+
 /* Base styles */
 html {
   -webkit-text-size-adjust: 100%;
