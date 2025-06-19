@@ -29,6 +29,7 @@
   /* Add these to prevent iOS scroll jumping */
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
+  overflow: hidden;
 }
 
 .trainer-slide {

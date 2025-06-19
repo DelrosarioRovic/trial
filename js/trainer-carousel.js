@@ -25,7 +25,10 @@ function initializeTrainerCarousel() {
   // Touch handlers
   function handleTouchStart(e) {
     touchStartX = e.changedTouches[0].screenX;
-    e.preventDefault();
+    // Only prevent default if we can
+    if (e.cancelable) {
+      e.preventDefault();
+    }
   }
 
   function handleTouchEnd(e) {
@@ -33,7 +36,9 @@ function initializeTrainerCarousel() {
     const threshold = 50;
     
     if (Math.abs(touchEndX - touchStartX) > threshold) {
-      e.preventDefault(); // Prevent jump-to-top
+      if (e.cancelable) {
+        e.preventDefault();
+      }
       handleSwipe();
     }
   }
@@ -58,9 +63,13 @@ function initializeTrainerCarousel() {
     dotClickHandlers.push({ dot, handler });
   });
 
-  // Add touch events
-  carousel?.addEventListener('touchstart', handleTouchStart, { passive: true });
-  carousel?.addEventListener('touchend', handleTouchEnd, { passive: true });
+    // Add touch events 
+  carousel?.addEventListener('touchstart', handleTouchStart, { passive: false });
+  carousel?.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+  if (carousel) {
+    carousel.style.touchAction = 'pan-y'; // Allow vertical scrolling but prevent horizontal
+  }
 
   // Auto-advance every 5 seconds
   intervalId = setInterval(() => showSlide(currentSlide + 1), 5000);
@@ -75,8 +84,8 @@ function initializeTrainerCarousel() {
     });
     
     // Remove touch handlers
-    carousel?.removeEventListener('touchstart', handleTouchStart, { passive: true});
-    carousel?.removeEventListener('touchend', handleTouchEnd, { passive: true});
+    carousel?.removeEventListener('touchstart', handleTouchStart, { passive: false});
+    carousel?.removeEventListener('touchend', handleTouchEnd, { passive: false});
     
     console.log('Carousel cleaned up');
   };
