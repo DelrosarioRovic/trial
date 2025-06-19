@@ -2,7 +2,7 @@ function initializeFullscreenVideoControls() {
   const video = document.getElementById('fullscreen-video-id');
   if (!video) return;
   video.removeAttribute('controls'); // Remove default controls
-
+  
   video.currentTime = parseFloat(videoState.currentTime) || 0;
   video.duration = parseFloat(videoState.duration) || 0;
 
@@ -189,9 +189,7 @@ function initializeFullscreenVideoControls() {
         currentFloatingCleanup = null;
     }
 
-    // const getApp = document.getElementById('app');
-    // getApp.style.display = "block";
-
+    videoState.isPlayed = true;
     // Create a new specific video element
     const floatContent = document.getElementById('floating-content');
     currentFloatingCleanup = document.createElement('specific-video');

@@ -43,6 +43,7 @@ function CreateFullScreenVideo() {
         }
 
         getApp.style.display = "none";
+        videoState.isPlayed = true;
         // Create a new fullscreen video element
         const floatContent = document.getElementById('floating-content');
         currentFloatingCleanup = document.createElement('fullscreen-video');

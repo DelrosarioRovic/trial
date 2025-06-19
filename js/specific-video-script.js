@@ -2,9 +2,7 @@ function initializeSpecificVideoControls() {
   const video = document.getElementById('specific-video-id');
   if (!video && !videoState.url) return;
   
-  if (videoState.currentTime > 0) {
-    console.log("testing videoState.currentTime", videoState.currentTime);
-    
+  if (videoState.currentTime > 0 && videoState.isPlayed) {
     video.currentTime = parseFloat(videoState.currentTime) || 0;
     video.duration = parseFloat(videoState.duration) || 0;
   }
@@ -164,7 +162,7 @@ video.addEventListener('timeupdate', function() {
     }
 
     app.style.display = "block";
-
+    videoState.isPlayed = false;
     videoState = initialVideoState;
     
     if (currentFloatingCleanup) {

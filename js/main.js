@@ -7,7 +7,8 @@ const initialVideoState = {
   isPaused: false,
   isEnded: false,
   isMuted: false,
-  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231'
+  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231',
+  isPlayed: false
 }
 
 let videoState = {
@@ -16,7 +17,8 @@ let videoState = {
   isPaused: false,
   isEnded: false,
   isMuted: false,
-  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231'
+  url: 'https://ik.imagekit.io/ldhtvbchc/video/boxing-fullscreen.mp4?updatedAt=1750062019231',
+  isPlayed: false
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -34,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             app.style.display = "block";
+            videoState.isPlayed = false;
             const page = this.getAttribute('data-page');
             navigateTo(page);
         });
