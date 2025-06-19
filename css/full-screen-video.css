@@ -1,16 +1,8 @@
-/* Add this at the top of your CSS */
-@supports (-webkit-touch-callout: none) {
-  /* CSS specific to iOS devices */ 
-  .fullscreen-video-container {
-    padding-top: env(safe-area-inset-top);
-  }
-}
-
 /* fullscreen video container screen */
 .fullscreen-video-container {
   position: fixed;
   inset: 0;
-  height: 100svh;
+  height: 100%;
   background-color: var(--background-color);
   z-index: 51;
   color: var(--text-color);
