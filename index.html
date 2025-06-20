@@ -1,225 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Profile</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Container styling */
-        .profile-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 40px;
-        }
-        
-        /* Left sidebar with profile info */
-        .profile-sidebar {
-            width: 300px;
-            flex-shrink: 0;
-            text-align: center;
-            position: sticky;
-            top: 40px;
-            height: fit-content;
-        }
-        
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid #eaeaea;
-        }
-        
-        .profile-name {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        
-        .profile-title {
-            font-size: 18px;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-        
-        /* Main content area with scrollable text */
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  
+  <title>My SPA</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Legends">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./assets/pwa-assets/icon-192x192.png">
 
-        
-        /* Custom scrollbar */
-        .profile-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .profile-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        .profile-content::-webkit-scrollbar-thumb {
-            background: #bdc3c7;
-            border-radius: 10px;
-        }
-        
-        .profile-content::-webkit-scrollbar-thumb:hover {
-            background: #95a5a6;
-        }
-        
-        /* Content sections */
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            color: #3498db;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-        
-        .section-content {
-            font-size: 16px;
-        }
-        
-        .section-content p {
-            margin-bottom: 15px;
-        }
-        
-        /* Skills section */
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .skill-tag {
-            background-color: #e0f7fa;
-            color: #00838f;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-    </style>
+<!-- Splash screen (optional) -->
+<!-- <link rel="apple-touch-startup-image" href="/splash.png"> -->
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#000000">
+  <script src="https://kit.fontawesome.com/1b864826e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="profile-sidebar">
-            <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
-            <h1 class="profile-name">Your Name</h1>
-            <p class="profile-title">Your Profession or Title</p>
-            
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Email: you@example.com</p>
-                <p>Phone: (123) 456-7890</p>
-                <p>Location: Your City, Country</p>
-            </div>
-            
-            <div class="skills">
-                <h3>Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Design</span>
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Problem Solving</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="profile-content">
-            <section class="section">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere.</p>
-                    
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.</p>
-                    
-                    <p>Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin molestie tortor eu velit. Aliquam erat volutpat. Nullam ultrices, diam tempus vulputate egestas, eros pede varius leo, sed imperdiet lectus est ornare odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="section-content">
-                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus.</p>
-                    
-                    <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue.</p>
-                    
-                    <p>Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque.</p>
-                    
-                    <p>Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="section-content">
-                    <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.</p>
-                    
-                    <p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Projects</h2>
-                <div class="section-content">
-                    <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.</p>
-                    
-                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus.</p>
-                    
-                    <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Hobbies & Interests</h2>
-                <div class="section-content">
-                    <p>Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque.</p>
-                    
-                    <p>Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-                    
-                    <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Future Goals</h2>
-                <div class="section-content">
-                    <p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.</p>
-                    
-                    <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.</p>
-                </div>
-            </section>
-        </div>
+  <nav-bar></nav-bar>
+  <div class="main-container">
+    <!-- initial content -->
+    <div id="apps">
+      <!-- Content will load here -->
+       <p>
+        awewwwwwwwwwwwwwwwwwwwwwwwww
+        Features of this design:
+Responsive Layout: Fixed sidebar with profile information and scrollable main content area
+
+Clean Design: Professional appearance with good spacing and typography
+
+Multiple Sections: Organized content in clearly defined sections
+
+Custom Scrollbar: Styled scrollbar for the content area
+
+Sticky Sidebar: Profile information stays visible while scrolling
+
+Skill Tags: Visual representation of skills
+
+Placeholder Image: Ready for you to add your own photo
+
+How to Customize:
+Replace the placeholder image with your own photo
+
+Update all the personal information (name, title, contact details)
+
+Replace the Lorem Ipsum text with your actual content
+
+Adjust the color scheme by modifying the CSS variables
+
+Add or remove sections as needed
+
+The content will scroll independently on desktop while the profile information remains fixed on the left side.
+Features of this design:
+Responsive Layout: Fixed sidebar with profile information and scrollable main content area
+
+Clean Design: Professional appearance with good spacing and typography
+
+Multiple Sections: Organized content in clearly defined sections
+
+Custom Scrollbar: Styled scrollbar for the content area
+
+Sticky Sidebar: Profile information stays visible while scrolling
+
+Skill Tags: Visual representation of skills
+
+Placeholder Image: Ready for you to add your own photo
+
+How to Customize:
+Replace the placeholder image with your own photo
+
+Update all the personal information (name, title, contact details)
+
+Replace the Lorem Ipsum text with your actual content
+
+Adjust the color scheme by modifying the CSS variables
+
+Add or remove sections as needed
+
+The content will scroll independently on desktop while the profile information remains fixed on the left side.
+Features of this design:
+Responsive Layout: Fixed sidebar with profile information and scrollable main content area
+
+Clean Design: Professional appearance with good spacing and typography
+
+Multiple Sections: Organized content in clearly defined sections
+
+Custom Scrollbar: Styled scrollbar for the content area
+
+Sticky Sidebar: Profile information stays visible while scrolling
+
+Skill Tags: Visual representation of skills
+
+Placeholder Image: Ready for you to add your own photo
+
+How to Customize:
+Replace the placeholder image with your own photo
+
+Update all the personal information (name, title, contact details)
+
+Replace the Lorem Ipsum text with your actual content
+
+Adjust the color scheme by modifying the CSS variables
+
+Add or remove sections as needed
+
+The content will scroll independently on desktop while the profile information remains fixed on the left side.
+       </p>
     </div>
+    <!-- floating content video container specfic or fullscreen -->
+     <div id="floating-content">
+        
+     </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+  <!-- control script for specific video screen -->
+  <script src="./js/specific-video-script.js"></script>
+  <!-- control script for full screen video -->
+   <script src="./js/fullscreen-video-script.js"></script>
+
+  <!-- passing the data to the specific video screen and full screen video -->
+   <script src="./js/video-state-utils.js"></script>
+  <!-- preventing zoom in ios and android so user can zoom -->
+  <script src="./js/prevent-zoom.js"></script>
+  <!-- this is for a script use for activating or when something is click a floating screen like specific videos and specific full screen video -->
+  <script src="./js/activate-float.js"></script>
+  <!-- pwa script -->
+  <script src="./js/register-services-worker.js"></script>
+  <!-- components script -->
+  <script src="./components/navigation.js"></script>
+  <script src="./components/header.js"></script>
+  <!-- pages script -->
+   <script src="./dashboard/home.js"></script>
+   <script src="./dashboard/profile.js"></script>
+   <script src="./dashboard/video.js"></script>
+   <script src="./dashboard/trainer.js"></script>
+   <script src="./components/specific-video.js"></script>
+   <script src="./components/full-screen.js"></script>
 </body>
 </html>
