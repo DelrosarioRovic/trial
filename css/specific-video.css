@@ -12,6 +12,13 @@
   transform: translateX(-50%); /* Center the navbar */
   width: 100%; /* This makes it full width - change this */
   max-width: 500px; /* Add this to limit maximum width */
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.specific-video-container::-webkit-scrollbar {
+  display: none;
 }
 
 .specific-video-box {
