@@ -51,11 +51,10 @@ customElements.define(
           <div class="ios-install-content">
             <h3>Add Legends to Home Screen</h3>
             <ol class="ios-install-steps">
-              <li>Tap the <strong>Share</strong> button <i class="fa-solid fa-arrow-up-from-bracket fa-2xl" style="color: #ffffff;"></i></li>
+              <li>Tap the <strong>Share</strong> button <i class="fa-solid fa-arrow-up-from-bracket" style="color: #ffffff;"></i></li>
               <li>Select <strong>"Add to Home Screen"</strong></li>
               <li>Tap <strong>"Add"</strong> in top-right corner</li>
             </ol>
-            <i class="fa-solid fa-arrow-down fa-2xl" style="color: #ffffff"></i>
             <button class="ios-install-close" id="closeInstallModal">Got It!</button>
           </div>
         </div>
