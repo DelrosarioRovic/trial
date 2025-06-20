@@ -185,16 +185,16 @@ function loadTrainerPage(container) {
   document.head.appendChild(style);
 
   // Create and append script
-//   const script = document.createElement('script');
-//   script.src = './js/trainer-carousel.js';
-//   script.id = 'trainer-page-script';
-//   setTimeout(() => {
-//   script.onload = function() {
-//     // Initialize the carousel after script loads
-//         currentPageCleanup = initializeTrainerCarousel();
-//     };
-//     document.body.appendChild(script);
-//   }, 500);
+  const script = document.createElement('script');
+  script.src = './js/trainer-carousel.js';
+  script.id = 'trainer-page-script';
+  setTimeout(() => {
+  script.onload = function() {
+    // Initialize the carousel after script loads
+        currentPageCleanup = initializeTrainerCarousel();
+    };
+    document.body.appendChild(script);
+  }, 500);
 }
 
 function loadVideoPage(container) {
