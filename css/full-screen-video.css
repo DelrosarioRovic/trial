@@ -15,6 +15,12 @@
   max-width: 500px; /* Add this to limit maximum width */
   /* Add safe area padding */
   padding-top: env(safe-area-inset-top);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fullscreen-video-container::-webkit-scrollbar {
+  display: none;
 }
 
 .fullscreen-play-pause-btn {
