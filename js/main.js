@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ✅ Use query param instead of hash to get current page
 function getCurrentPageFromQuery() {    
-    return window.location.hash.replace('#', '') || 'home';
+    const params = new URLSearchParams(window.location.search);
+    return params.get('page') || 'home';
 }
 
 // Helper function to update active link
@@ -99,7 +100,8 @@ function navigateTo(page) {
     
     // Then update URL state
     if (getCurrentPageFromQuery() !== page) {
-        history.pushState({ page: page }, '', `#${page}`);
+        // Instead of #page, use query param:
+        history.pushState({ page }, '', `?page=${page}`);
     }
     // Hide specific video container if it exists
     const specificElement = document.getElementById('specific-video-container');
