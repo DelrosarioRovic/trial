@@ -177,9 +177,6 @@ customElements.define(
               if (outcome === 'accepted') {
                 installButton.style.display = 'none';
               }
-            } else if (isIOS) {
-              // Legacy iOS - show instructions
-              alert('To install this app, tap the Share icon and then "Add to Home Screen".');
             }
           });
         }

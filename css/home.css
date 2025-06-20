@@ -134,27 +134,33 @@
   align-items: center;
   z-index: 9999;
   backdrop-filter: blur(5px);
-}   .ios-install-content {
+}   
+.ios-install-content {
   background: var(--secondary-bg-color);
   border: 1px solid var(--secondary-color);
+  color: var(--text-color);
   border-radius: 12px;
   width: 85%;
   max-width: 350px;
   padding: 20px;
   text-align: center;
   animation: fadeIn 0.3s ease;
-}   .ios-install-steps {
+}   
+.ios-install-steps {
   text-align: left;
   color: var(--secondary-text-color);
   padding-left: 20px;
   margin: 20px 0;
-}   .ios-install-steps li {
+}   
+.ios-install-steps li {
   margin-bottom: 10px;
-}   .ios-install-arrow {
+}   
+.ios-install-arrow {
   margin: 25px 0;
   color: var(--yellow-color);
   font-size: 2rem;
-}   .ios-install-close {
+}   
+.ios-install-close {
   background: var(--secondary-color);
   color: white;
   border: none;
