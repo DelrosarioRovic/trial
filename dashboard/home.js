@@ -31,6 +31,11 @@ customElements.define(
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
           }
+
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
         </style>
         <div class="loader-overlay">
           <div class="loader"></div>
@@ -42,6 +47,19 @@ customElements.define(
         this.shadowRoot.querySelector('.loader-overlay')?.remove();
       this.innerHTML = `<!-- home -->
       <section slot="home">
+        <div class="ios-install-modal" id="iosInstallModal">
+          <div class="ios-install-content">
+            <h3>Add Legends to Home Screen</h3>
+            <ol class="ios-install-steps">
+              <li>Tap the <strong>Share</strong> button <img src="./assets/icons/ios-share.png" width="14" style="vertical-align: middle"></li>
+              <li>Select <strong>"Add to Home Screen"</strong></li>
+              <li>Tap <strong>"Add"</strong> in top-right corner</li>
+            </ol>
+            <div class="ios-install-arrow">↓</div>
+            <button class="ios-install-close" id="closeInstallModal">Got It!</button>
+          </div>
+        </div>
+
         <div class="container-h">
           <div class="container-s">
             <div class="clip1">
@@ -165,7 +183,62 @@ customElements.define(
             }
           });
         }
+        // Initialize PWA installation
+        this.setupPWAInstallation();
       }, 400); 
     }
+     setupPWAInstallation() {
+    const installButton = this.querySelector('#addToHome');
+    const iosModal = this.querySelector('#iosInstallModal');
+    const closeModal = this.querySelector('#closeInstallModal');
+    let deferredPrompt;
+
+    // Check if already installed
+    const isInstalled = window.matchMedia('(display-mode: standalone)').matches || 
+                        window.navigator.standalone;
+
+    if (isInstalled) {
+      installButton.style.display = 'none';
+      return;
+    }
+
+    // Android/Chrome: Listen for install prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = 'flex';
+    });
+
+    // iOS: Show button even without beforeinstallprompt
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    if (isIOS && !isInstalled) {
+      installButton.style.display = 'flex';
+    }
+
+    // Handle install button click
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        // Android/Chrome - show native prompt
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          installButton.style.display = 'none';
+        }
+      } else if (isIOS) {
+        // iOS - show visual guide
+        iosModal.style.display = 'flex';
+      } else {
+        // Fallback
+        alert('Look for "Install" in your browser menu');
+      }
+    });
+
+    // Close iOS modal
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        iosModal.style.display = 'none';
+      });
+    }
+  }
   }
 );
