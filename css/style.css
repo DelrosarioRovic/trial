@@ -58,8 +58,6 @@ body {
   min-height: 100vh;
 }
 
-
-
 /* Modern height units with fallbacks */
 @supports (height: 100dvh) {
   body {

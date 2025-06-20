@@ -60,6 +60,9 @@ customElements.define(
               <img src="./assets/icons/next.png" class="next" alt="">
             </div>
           </div>
+          <button class="add-to-home" id="addToHome">
+            Add Legends App Icon
+          </button>
           <!-- popular videos -->
           <div>
             <h2 class="popular-title">POPULAR VIDEOS</h2>

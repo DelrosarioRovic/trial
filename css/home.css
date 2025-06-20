@@ -101,7 +101,24 @@
     object-position: top;
 }
 
-
+.add-to-home {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.5s ease-out;
+}
+  
 /* popular videos section*/
 .popular-title {
     margin-bottom: 10px;
