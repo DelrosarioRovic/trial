@@ -121,6 +121,10 @@
     display: none;
 }
 
+.share-download {
+    margin-left: 5px;
+}
+
 /* iOS Install Modal */
 .ios-install-modal {
   position: fixed;
@@ -128,7 +132,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--background-color);
+  background: #22222215;
   display: none;
   justify-content: center;
   align-items: center;
@@ -140,8 +144,8 @@
   color: var(--text-color);
   border-radius: 12px;
   width: 85%;
-  max-width: 350px;
-  padding: 20px;
+  max-width: 320px;
+  padding: 30px 20px;
   text-align: center;
   animation: fadeIn 0.3s ease;
 }   
