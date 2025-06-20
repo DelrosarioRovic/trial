@@ -118,6 +118,9 @@ function navigateTo(page) {
 
 function loadPage(page) {
     // Clear previous content and run cleanup
+    const scrollY = window.scrollY;
+    app.style.opacity = '0';
+    app.style.pointerEvents = 'none';
     if (currentPageCleanup) {
         console.log('Running cleanup for previous page');
         currentPageCleanup();
@@ -155,6 +158,14 @@ function loadPage(page) {
             console.warn('Video controls failed to initialize:', e);
         }
     }, 500); // wait for component render
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 0);
+    // After content is loaded
+    setTimeout(() => {
+        app.style.opacity = '1';
+        app.style.pointerEvents = 'auto';
+    }, 100);
 }
 
 function loadHomePage(container) {

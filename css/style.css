@@ -31,10 +31,6 @@
   font-display: swap;
 }
 
-/* /test to fix scroll behavior/ */
-body, html {
-  overscroll-behavior: contain;
-}
 
 /* Base styles */
 html {
@@ -42,6 +38,7 @@ html {
   touch-action: pan-x pan-y;
   scroll-behavior: auto;
   height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 * {
@@ -50,6 +47,7 @@ html {
 }
 
 body {
+  -webkit-overflow-scrolling: touch;
   background-color: #0a0a0a;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
