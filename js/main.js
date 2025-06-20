@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
             app.style.display = "block";
             videoState.isPlayed = false;
             const page = this.getAttribute('data-page');
-            navigateTo(page);
+
+            setTimeout(() => {
+                navigateTo(page);
+            }, 100);
         });
     });
 
@@ -125,7 +128,9 @@ function loadPage(page) {
         currentFloatingCleanup = null;
     }
     // Clear the app container
-    app.innerHTML = '';
+    setTimeout(() => {
+        app.innerHTML = '';
+    }, 100);
     
     // Load the appropriate page
     switch(page) {
