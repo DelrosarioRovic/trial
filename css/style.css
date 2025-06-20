@@ -46,17 +46,6 @@ html {
   touch-action: manipulation;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-  width: 0px;
-  background: transparent;
-}
-
 body {
   background-color: #0a0a0a;
   font-family: 'Poppins', sans-serif;
