@@ -125,7 +125,47 @@ customElements.define(
         </div>
       </section>
       `;
-         }, 400); 
+
+      // PWA Installation Logic
+      const installButton = this.querySelector('#addToHome');
+      let deferredPrompt;
+
+      // Check if PWA is already installed
+        const isInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+        if (isInstalled) {
+          installButton.style.display = 'none'; // Hide if already installed
+        } else {
+          // Modern browsers (including iOS 16.4+)
+          window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+          });
+
+          // Legacy iOS detection
+          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+          const isSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
+
+          if ((isIOS && isSafari) || isIOS) {
+            installButton.style.display = 'block'; // Show for iOS even without beforeinstallprompt
+          }
+
+          installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+              // Modern browsers (Chrome, Edge, iOS 16.4+)
+              deferredPrompt.prompt();
+              const { outcome } = await deferredPrompt.userChoice;
+              if (outcome === 'accepted') {
+                installButton.style.display = 'none';
+              }
+            } else if (isIOS) {
+              // Legacy iOS - show instructions
+              alert('To install this app, tap the Share icon and then "Add to Home Screen".');
+            }
+          });
+        }
+      }, 400); 
     }
   }
 );

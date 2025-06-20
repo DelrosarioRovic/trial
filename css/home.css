@@ -101,6 +101,7 @@
     object-position: top;
 }
 
+/* add home btn and modal instruction on how to install or add home the app */
 .add-to-home {
     position: fixed;
     bottom: 100px;
