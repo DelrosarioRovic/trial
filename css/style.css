@@ -41,14 +41,20 @@ html {
   height: 100%;
 }
 
-
 * {
   /* Disable double-tap zoom on specific elements */
   touch-action: manipulation;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+  width: 0px;
+  background: transparent;
 }
 
 body {
