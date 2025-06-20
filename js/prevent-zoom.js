@@ -8,7 +8,6 @@ function resetZoom() {
     document.body.style.zoom = 1.0;
     setTimeout(() => {
         document.body.style.zoom = 1.0;
-        window.scrollTo(0, 0);
     }, 100);
 }
 // Check for zoom changes
