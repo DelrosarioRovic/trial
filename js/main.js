@@ -127,10 +127,7 @@ function loadPage(page) {
         currentFloatingCleanup.remove();
         currentFloatingCleanup = null;
     }
-    // Clear the app container
-    setTimeout(() => {
-        app.innerHTML = '';
-    }, 100);
+    app.innerHTML = '';
     
     // Load the appropriate page
     switch(page) {
