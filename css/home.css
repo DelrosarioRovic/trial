@@ -118,6 +118,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.5s ease-out;
 }
+
+/* Hide on desktop and when in standalone mode */
+@media (min-width: 768px), (display-mode: standalone) {
+  .add-to-home {
+    display: none !important;
+  }
+}
   
 /* popular videos section*/
 .popular-title {
