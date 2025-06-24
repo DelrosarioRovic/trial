@@ -183,58 +183,78 @@ customElements.define(
         this.setupPWAInstallation();
       }, 400); 
     }
-     setupPWAInstallation() {
-    const installButton = this.querySelector('#addToHome');
-    const iosModal = this.querySelector('#iosInstallModal');
-    const closeModal = this.querySelector('#closeInstallModal');
-    let deferredPrompt;
+  async setupPWAInstallation() {
+      const installButton = this.querySelector('#addToHome');
+      const iosModal = this.querySelector('#iosInstallModal');
+      const closeModal = this.querySelector('#closeInstallModal');
 
-    // Check if already installed
-    const isInstalled = window.matchMedia('(display-mode: standalone)').matches || 
-                        window.navigator.standalone;
+      if (!installButton) return;
 
-    if (isInstalled) {
-      installButton.style.display = 'none';
-      return;
-    }
+      // 1. Check if we're in standalone mode (already installed)
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                         (window.navigator.standalone === true);
 
-    // Android/Chrome: Listen for install prompt
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installButton.style.display = 'flex';
-    });
+      // 2. Check for iOS specifically
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
 
-    // iOS: Show button even without beforeinstallprompt
-    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    if (isIOS && !isInstalled) {
-      installButton.style.display = 'flex';
-    }
-
-    // Handle install button click
-    installButton.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        // Android/Chrome - show native prompt
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
+      // 3. Special handling for iOS 17+ Safari
+      if (isIOS && isSafari) {
+        // Try to detect if launched from home screen
+        if (window.navigator.standalone === true || isStandalone) {
           installButton.style.display = 'none';
+          return;
         }
-      } else if (isIOS) {
-        // iOS - show visual guide
-        iosModal.style.display = 'flex';
-      } else {
-        // Fallback
-        alert('Look for "Install" in your browser menu');
-      }
-    });
 
-    // Close iOS modal
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        iosModal.style.display = 'none';
+        // Check localStorage for previous installation
+        if (localStorage.getItem('pwaInstalled') === 'true') {
+          installButton.style.display = 'none';
+          return;
+        }
+
+        // Show install button for iOS Safari
+        installButton.style.display = 'flex';
+
+        // Set up iOS installation instructions
+        installButton.addEventListener('click', () => {
+          iosModal.style.display = 'flex';
+        });
+
+        // When user closes the modal, remember they've seen it
+        if (closeModal) {
+          closeModal.addEventListener('click', () => {
+            iosModal.style.display = 'none';
+            localStorage.setItem('pwaInstalled', 'true');
+          });
+        }
+
+        return;
+      }
+
+      // 4. Handle non-iOS browsers (Chrome, Edge, etc.)
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.style.display = 'flex';
+      });
+
+      // If already installed, hide button
+      if (isStandalone) {
+        installButton.style.display = 'none';
+        return;
+      }
+
+      // Set up install button for non-iOS browsers
+      installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            installButton.style.display = 'none';
+          }
+        }
       });
     }
-  }
   }
 );
