@@ -183,58 +183,88 @@ customElements.define(
         this.setupPWAInstallation();
       }, 400); 
     }
-     setupPWAInstallation() {
-    const installButton = this.querySelector('#addToHome');
-    const iosModal = this.querySelector('#iosInstallModal');
-    const closeModal = this.querySelector('#closeInstallModal');
-    let deferredPrompt;
+    setupPWAInstallation() {
+  const installButton = this.querySelector('#addToHome');
+  const iosModal = this.querySelector('#iosInstallModal');
+  const closeModal = this.querySelector('#closeInstallModal');
+  let deferredPrompt;
 
-    // Check if already installed
-    const isInstalled = window.matchMedia('(display-mode: standalone)').matches || 
-                        window.navigator.standalone;
+  // Improved detection for PWA already installed
+  const isInstalled = () => {
+    // For non-iOS browsers
+    if (window.matchMedia('(display-mode: standalone)').matches) return true;
+    
+    // For iOS
+    if (window.navigator.standalone) return true;
+    
+    // Additional check for newer iOS versions
+    if (window.matchMedia('(display-mode: fullscreen)').matches) return true;
+    
+    return false;
+  };
 
-    if (isInstalled) {
-      installButton.style.display = 'none';
-      return;
-    }
-
-    // Android/Chrome: Listen for install prompt
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installButton.style.display = 'flex';
-    });
-
-    // iOS: Show button even without beforeinstallprompt
-    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    if (isIOS && !isInstalled) {
-      installButton.style.display = 'flex';
-    }
-
-    // Handle install button click
-    installButton.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        // Android/Chrome - show native prompt
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-          installButton.style.display = 'none';
-        }
-      } else if (isIOS) {
-        // iOS - show visual guide
-        iosModal.style.display = 'flex';
-      } else {
-        // Fallback
-        alert('Look for "Install" in your browser menu');
-      }
-    });
-
-    // Close iOS modal
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        iosModal.style.display = 'none';
-      });
-    }
+  // Check if already installed
+  if (isInstalled()) {
+    installButton.style.display = 'none';
+    return;
   }
+
+  // Android/Chrome: Listen for install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installButton.style.display = 'flex';
+  });
+
+  // iOS detection
+  const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS
+  };
+
+  // Handle iOS specifically
+  if (isIOS()) {
+    // On iOS, we need to check on page load and also on page focus
+    const checkIOSInstallation = () => {
+      if (window.navigator.standalone) {
+        installButton.style.display = 'none';
+      } else {
+        installButton.style.display = 'flex';
+      }
+    };
+
+    // Check initially
+    checkIOSInstallation();
+    
+    // Check again when page gains focus (in case user installed while app was open)
+    window.addEventListener('pageshow', checkIOSInstallation);
+    window.addEventListener('focus', checkIOSInstallation);
+  }
+
+  // Handle install button click
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      // Android/Chrome - show native prompt
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        installButton.style.display = 'none';
+      }
+    } else if (isIOS()) {
+      // iOS - show visual guide
+      iosModal.style.display = 'flex';
+    } else {
+      // Fallback
+      alert('Look for "Install" in your browser menu');
+    }
+  });
+
+  // Close iOS modal
+  if (closeModal) {
+    closeModal.addEventListener('click', () => {
+      iosModal.style.display = 'none';
+    });
+  }
+}
   }
 );
