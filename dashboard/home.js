@@ -183,78 +183,75 @@ customElements.define(
         this.setupPWAInstallation();
       }, 400); 
     }
-  async setupPWAInstallation() {
-      const installButton = this.querySelector('#addToHome');
-      const iosModal = this.querySelector('#iosInstallModal');
-      const closeModal = this.querySelector('#closeInstallModal');
+setupPWAInstallation() {
+  const installButton = this.querySelector('#addToHome');
+  const iosModal = this.querySelector('#iosInstallModal');
+  const closeModal = this.querySelector('#closeInstallModal');
+  
+  // Enhanced installation check
+  const isInstalled = () => {
+    // For Android/Chrome
+    if (window.matchMedia('(display-mode: standalone)').matches) return true;
+    
+    // For iOS
+    if (window.navigator.standalone) return true;
+    
+    // For other browsers that support getInstalledRelatedApps
+    if ('getInstalledRelatedApps' in window.navigator) {
+      return navigator.getInstalledRelatedApps().then(apps => apps.length > 0);
+    }
+    
+    return false;
+  };
 
-      if (!installButton) return;
-
-      // 1. Check if we're in standalone mode (already installed)
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
-                         (window.navigator.standalone === true);
-
-      // 2. Check for iOS specifically
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const isSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
-
-      // 3. Special handling for iOS 17+ Safari
-      if (isIOS && isSafari) {
-        // Try to detect if launched from home screen
-        if (window.navigator.standalone === true || isStandalone) {
-          installButton.style.display = 'none';
-          return;
-        }
-
-        // Check localStorage for previous installation
-        if (localStorage.getItem('pwaInstalled') === 'true') {
-          installButton.style.display = 'none';
-          return;
-        }
-
-        // Show install button for iOS Safari
-        installButton.style.display = 'flex';
-
-        // Set up iOS installation instructions
-        installButton.addEventListener('click', () => {
-          iosModal.style.display = 'flex';
-        });
-
-        // When user closes the modal, remember they've seen it
-        if (closeModal) {
-          closeModal.addEventListener('click', () => {
-            iosModal.style.display = 'none';
-            localStorage.setItem('pwaInstalled', 'true');
-          });
-        }
-
-        return;
-      }
-
-      // 4. Handle non-iOS browsers (Chrome, Edge, etc.)
-      let deferredPrompt;
+  // Check installation status
+  isInstalled().then(installed => {
+    if (installed) {
+      installButton.style.display = 'none';
+    } else {
+      // Android/Chrome: Listen for install prompt
       window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
-        deferredPrompt = e;
+        this.deferredPrompt = e;
         installButton.style.display = 'flex';
       });
 
-      // If already installed, hide button
-      if (isStandalone) {
-        installButton.style.display = 'none';
-        return;
-      }
+      // iOS: Show button if Safari
+      const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+      const isSafari = navigator.userAgent.includes('Safari') && 
+                      !navigator.userAgent.includes('Chrome') && 
+                      !navigator.userAgent.includes('CriOS');
 
-      // Set up install button for non-iOS browsers
-      installButton.addEventListener('click', async () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
-          if (outcome === 'accepted') {
-            installButton.style.display = 'none';
-          }
+      if (isIOS && isSafari) {
+        // Additional iOS check - try to detect if launched from home screen
+        if (!window.navigator.standalone) {
+          installButton.style.display = 'flex';
         }
-      });
+      }
     }
+  });
+
+  // Handle install button click
+  installButton.addEventListener('click', async () => {
+    if (this.deferredPrompt) {
+      // Android/Chrome
+      this.deferredPrompt.prompt();
+      const { outcome } = await this.deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        installButton.style.display = 'none';
+      }
+    } else {
+      // iOS - show visual guide
+      iosModal.style.display = 'flex';
+    }
+  });
+
+  // Close iOS modal
+  if (closeModal) {
+    closeModal.addEventListener('click', () => {
+      iosModal.style.display = 'none';
+    });
+  }
+}
   }
 );
