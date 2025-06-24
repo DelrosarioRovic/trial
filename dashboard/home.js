@@ -183,75 +183,58 @@ customElements.define(
         this.setupPWAInstallation();
       }, 400); 
     }
-setupPWAInstallation() {
-  const installButton = this.querySelector('#addToHome');
-  const iosModal = this.querySelector('#iosInstallModal');
-  const closeModal = this.querySelector('#closeInstallModal');
-  
-  // Enhanced installation check
-  const isInstalled = () => {
-    // For Android/Chrome
-    if (window.matchMedia('(display-mode: standalone)').matches) return true;
-    
-    // For iOS
-    if (window.navigator.standalone) return true;
-    
-    // For other browsers that support getInstalledRelatedApps
-    if ('getInstalledRelatedApps' in window.navigator) {
-      return navigator.getInstalledRelatedApps().then(apps => apps.length > 0);
-    }
-    
-    return false;
-  };
+     setupPWAInstallation() {
+    const installButton = this.querySelector('#addToHome');
+    const iosModal = this.querySelector('#iosInstallModal');
+    const closeModal = this.querySelector('#closeInstallModal');
+    let deferredPrompt;
 
-  // Check installation status
-  isInstalled().then(installed => {
-    if (installed) {
+    // Check if already installed
+    const isInstalled = window.matchMedia('(display-mode: standalone)').matches || 
+                        window.navigator.standalone;
+
+    if (isInstalled) {
       installButton.style.display = 'none';
-    } else {
-      // Android/Chrome: Listen for install prompt
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        this.deferredPrompt = e;
-        installButton.style.display = 'flex';
-      });
-
-      // iOS: Show button if Safari
-      const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-      const isSafari = navigator.userAgent.includes('Safari') && 
-                      !navigator.userAgent.includes('Chrome') && 
-                      !navigator.userAgent.includes('CriOS');
-
-      if (isIOS && isSafari) {
-        // Additional iOS check - try to detect if launched from home screen
-        if (!window.navigator.standalone) {
-          installButton.style.display = 'flex';
-        }
-      }
+      return;
     }
-  });
 
-  // Handle install button click
-  installButton.addEventListener('click', async () => {
-    if (this.deferredPrompt) {
-      // Android/Chrome
-      this.deferredPrompt.prompt();
-      const { outcome } = await this.deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        installButton.style.display = 'none';
-      }
-    } else {
-      // iOS - show visual guide
-      iosModal.style.display = 'flex';
-    }
-  });
-
-  // Close iOS modal
-  if (closeModal) {
-    closeModal.addEventListener('click', () => {
-      iosModal.style.display = 'none';
+    // Android/Chrome: Listen for install prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = 'flex';
     });
+
+    // iOS: Show button even without beforeinstallprompt
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    if (isIOS && !isInstalled) {
+      installButton.style.display = 'flex';
+    }
+
+    // Handle install button click
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        // Android/Chrome - show native prompt
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          installButton.style.display = 'none';
+        }
+      } else if (isIOS) {
+        // iOS - show visual guide
+        iosModal.style.display = 'flex';
+      } else {
+        // Fallback
+        alert('Look for "Install" in your browser menu');
+      }
+    });
+
+    // Close iOS modal
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        iosModal.style.display = 'none';
+      });
+    }
   }
-}
   }
 );
